@@ -1,48 +1,51 @@
-# Footbackpain.com
+# footbackpain
 
-A single-page services and product directory for people with lower back pain, built around the link between foot health and back health. Plain HTML, CSS and JavaScript. No frameworks, no build step.
-
-Live domain: https://footbackpain.com
-Repo: https://github.com/Opus-Momentus/dr-mo-feet-help
+A responsive health-information directory about the possible relationship between feet, movement and back pain. It includes educational resources, Australian starter practice listings and product recommendations. The website is built with React, TypeScript and Vite. The images used by the site are included in `client/public/images`; the site does not require Manus services or an API key to run.
 
 ## Run locally
 
-Open `index.html` in a browser. No server is needed.
+Install Node.js 20.19 or newer (Node 22 is recommended). Open a terminal in the extracted `footbackpain-website` folder and run:
 
-## Structure
-
-```
-index.html      Page markup and sections
-css/styles.css  Styling; colour and width tokens in :root
-js/data.js      Content: chain steps, categories, listings (edit this most)
-js/app.js       Chain explorer, search and filters
-assets/         favicon.svg
-CNAME           Custom domain for GitHub Pages
+```bash
+npm ci
+npm run dev
 ```
 
-## Add or change a listing
+Open the local URL printed in the terminal, normally `http://127.0.0.1:5173`. Stop the server with Ctrl+C. To check types and make a production build:
 
-Edit `LISTINGS` in `js/data.js`:
-
-```js
-{ type: "service",            // "service" or "product"
-  category: "Assessment",     // must match an entry in CATEGORIES
-  name: "Your listing name",
-  description: "What it is.",
-  feet: "How it relates to foot health.",
-  tags: ["tag one", "tag two"],
-  url: "https://example.com" }
+```bash
+npm run check
+npm run build
+npm run preview
 ```
 
-The sample listings are placeholders. Replace them with real ones before launch.
+The build is written to `dist/public`. It contains prerendered pages, images, CSS and JavaScript. Serve it using a static web host rather than opening `index.html` directly as a file.
 
-## Deploy with GitHub Pages
+## Upload the source to GitHub
 
-1. Push to the `main` branch.
-2. In the repo, open Settings > Pages and choose "Deploy from a branch", `main`, `/ (root)`.
-3. At your domain registrar, point `footbackpain.com` to GitHub Pages (see GitHub's custom domain docs). The `CNAME` file is already included.
+The ZIP contains the project source and a lockfile; it intentionally excludes `node_modules`, Git history and build output. For an existing local clone, copy the contents of `footbackpain-website` into the repository directory, then run from that directory:
 
-## Notes
+```bash
+git status
+git add .
+git commit -m "Add footbackpain website"
+git push
+```
 
-- Listing text is inserted with `textContent`, so listings cannot inject HTML.
-- The footer carries a medical disclaimer. Keep it.
+If you are creating a new repository, first create an empty repository on GitHub, then follow GitHub's instructions to initialise or connect your local folder and push it. Do not upload `node_modules`.
+
+## Hosting considerations
+
+Publish the contents of `dist/public` to a static hosting service after building. Configure it to serve `index.html` inside each prerendered page directory. The current links and asset paths assume the site is hosted at the root of its domain. A GitHub Pages *project site* hosted under `https://username.github.io/repository-name/` needs a base-path adjustment before deployment; a root-domain deployment does not. The site uses Google Fonts with system fallbacks and sends visitors to external sites for maps, sources, practices and products.
+
+## Editing content
+
+- `client/src/data/articles.ts`: educational articles, sources and related links.
+- `client/src/data/providers.ts`: practice information and profile content. Check registration, contact details and fees independently before publishing.
+- `client/src/data/products.ts`: product descriptions and merchant URLs. These are currently direct merchant links, **not affiliate links**. Add your approved tracking URLs and update the on-page disclosure before claiming affiliate commissions.
+- `client/src/App.tsx`: page layouts, navigation and website text.
+- `client/src/index.css`: styling and responsive layouts.
+- `client/public/images/`: the included website imagery.
+- `scripts/prerender.tsx`: generates static pages for the routes defined by the site.
+
+The health content is general information, not medical advice. Review the clinical content, editorial policy, privacy notice and terms for your audience and jurisdiction before launching.
