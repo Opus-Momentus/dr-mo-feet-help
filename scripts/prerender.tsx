@@ -26,11 +26,15 @@ for (const route of allRoutes) {
   let extraHead = `\n    <link rel="canonical" href="${escape(canonicalUrl)}" />\n    <meta property="og:url" content="${escape(canonicalUrl)}" />`;
 
   if (article) {
+    const fullHeroUrl = `${SITE_URL}${article.heroImage}`;
+    extraHead += `\n    <meta property="og:image" content="${escape(fullHeroUrl)}" />\n    <meta name="twitter:image" content="${escape(fullHeroUrl)}" />`;
+
     const graph: Record<string, unknown>[] = [
       {
         '@type': 'Article',
         headline: article.title,
         description,
+        image: [fullHeroUrl],
         inLanguage: 'en-AU',
         author: {
           '@type': 'Organization',
@@ -91,6 +95,7 @@ for (const route of allRoutes) {
       `<meta name="keywords" content="${escape(article.keywords.join(', '))}" />`
     );
     html = html.replace(/<meta property="og:type" content="website"\s*\/>/, '<meta property="og:type" content="article" />');
+    html = html.replace(/<meta name="twitter:card" content="summary"\s*\/>/, '<meta name="twitter:card" content="summary_large_image" />');
   }
 
   const folder = route === '/' ? base : join(base, route.slice(1));

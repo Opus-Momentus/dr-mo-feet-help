@@ -35,6 +35,8 @@ export type Article = {
   metaTitle?: string;
   summary: string;
   metaDescription?: string;
+  heroImage: string;
+  heroAlt: string;
   keywords?: string[];
   author?: string;
   publishDate?: string;
@@ -56,6 +58,8 @@ export const articles: Article[] = [
     metaTitle: "The Surprising Link Between Back Pain & Foot Pain | Foot Back Pain",
     summary: "Discover how back pain and foot pain trigger each other through spinal nerves and the kinetic chain—plus podiatrist-designed support you can use today.",
     metaDescription: "Discover how back pain and foot pain trigger each other through spinal nerves and the kinetic chain—plus podiatrist-designed support you can use today.",
+    heroImage: "/images/posts/post-01-two-way-link.jpg",
+    heroAlt: "Older Australian man pausing on a sunlit eucalyptus park path with a hand resting gently on his lower back",
     keywords: ["link between back pain and foot pain", "can back pain cause foot pain", "kinetic chain feet and spine", "sciatic nerve foot pain", "podiatrist-designed orthotic insoles"],
     author: "Foot Back Pain Editorial Team",
     publishDate: "2026-11-21",
@@ -137,6 +141,8 @@ export const articles: Article[] = [
     metaTitle: "How Foot Problems Cause Lower Back Pain: 4 Key Solutions",
     summary: "Learn how fallen arches, stiff big toes, calluses, and poor shoes strain your lower spine—plus 4 practical podiatry solutions and orthotic upgrades.",
     metaDescription: "Learn how fallen arches, stiff big toes, calluses, and poor shoes strain your lower spine—plus 4 practical podiatry solutions and orthotic upgrades.",
+    heroImage: "/images/posts/post-02-foot-problems-solutions.jpg",
+    heroAlt: "Hands sliding a contoured podiatry-designed orthotic insole into an everyday walking shoe on a warm timber bench",
     keywords: ["how foot problems cause lower back pain", "functional hallux limitus back pain", "overpronation lower back pain", "solutions for foot-related back pain", "offloader innersoles and arch support"],
     author: "Foot Back Pain Editorial Team",
     publishDate: "2026-11-21",
@@ -222,6 +228,8 @@ export const articles: Article[] = [
     metaTitle: "5 Signs Your Lower Back Pain Is Coming From Your Feet",
     summary: "Back pain not improving with massage or physio alone? Check these 5 clear signs your feet and gait are driving your lower back ache—and how to fix the root cause.",
     metaDescription: "Back pain not improving with massage or physio alone? Check these 5 clear signs your feet and gait are driving your lower back ache—and how to fix the root cause.",
+    heroImage: "/images/posts/post-03-telltale-signs.jpg",
+    heroAlt: "Podiatrist and older patient examining wear patterns on the sole of a walking shoe during a consultation",
     keywords: ["signs lower back pain is from your feet", "back pain worse when standing or walking", "lower back pain not responding to physio", "podiatry for lower back pain", "arch support insoles for back pain"],
     author: "Foot Back Pain Editorial Team",
     publishDate: "2026-11-21",
@@ -321,6 +329,8 @@ export const articles: Article[] = [
     metaTitle: "Are Your Feet Causing Your Back Pain? Shock Absorption & Spine",
     summary: "Find out how flat feet, high arches, pronation, and footwear rob your spine of natural shock absorption—and how cushioned orthotic support protects your back.",
     metaDescription: "Find out how flat feet, high arches, pronation, and footwear rob your spine of natural shock absorption—and how cushioned orthotic support protects your back.",
+    heroImage: "/images/posts/post-04-shock-absorption.jpg",
+    heroAlt: "Close-up of cushioned supportive walking shoes stepping smoothly across a sunlit stone and timber coastal path",
     keywords: ["are your feet causing your back pain", "foot arches shock absorbers spine", "overpronation vs underpronation back pain", "high heels and lower back pain", "shock-absorbing heel pads and insoles"],
     author: "Foot Back Pain Editorial Team",
     publishDate: "2026-11-21",
@@ -401,6 +411,8 @@ export const articles: Article[] = [
     metaTitle: "Foot Alignment & Lower Back Pain: The Kinetic Chain Explained",
     summary: "Lower back pain isn't always caused by heavy lifting or bad chairs. See how poor foot alignment triggers a domino effect from ankles to spine—and how to fix it.",
     metaDescription: "Lower back pain isn't always caused by heavy lifting or bad chairs. See how poor foot alignment triggers a domino effect from ankles to spine—and how to fix it.",
+    heroImage: "/images/posts/post-05-foot-alignment-kinetic-chain.jpg",
+    heroAlt: "Active older woman standing with balanced upright posture from ankles to spine in a sunlit studio",
     keywords: ["foot alignment and lower back pain", "kinetic chain feet to lower back", "uneven shoe wear back pain", "pelvic tilt from flat feet", "alignment orthotic insoles Australia"],
     author: "Foot Back Pain Editorial Team",
     publishDate: "2026-11-21",
@@ -491,6 +503,8 @@ export const articles: Article[] = [
     metaTitle: "Can My Feet Cause Back Pain When Standing or Walking?",
     summary: "Does your lower back ache when standing or walking, then ease as soon as you sit down? Learn why your feet may be to blame—and simple ways to fix it.",
     metaDescription: "Does your lower back ache when standing or walking, then ease as soon as you sit down? Learn why your feet may be to blame—and simple ways to fix it.",
+    heroImage: "/images/posts/post-06-standing-hard-floors.jpg",
+    heroAlt: "Older man standing comfortably in supportive indoor shoes on a cushioned mat over kitchen floor tiles",
     keywords: ["can my feet cause back pain", "lower back pain when standing or walking", "gait compensation plantar fasciitis back pain", "leg length discrepancy lower back pain", "orthotic insoles for standing on hard floors"],
     author: "Foot Back Pain Editorial Team",
     publishDate: "2026-11-21",
@@ -576,6 +590,8 @@ export const articles: Article[] = [
     metaTitle: "Are Your Back & Foot Pain Related? 5 Overlooked Clues",
     summary: "Treating heel soreness and lower back stiffness separately? Discover 5 overlooked clues—including weak ankles and tight calves—linking foot and back pain.",
     metaDescription: "Treating heel soreness and lower back stiffness separately? Discover 5 overlooked clues—including weak ankles and tight calves—linking foot and back pain.",
+    heroImage: "/images/posts/post-07-clued-in-stretching.jpg",
+    heroAlt: "Older woman performing a gentle morning calf and Achilles stretch on a sunlit timber verandah",
     keywords: ["are back and foot pain related", "plantar fasciitis and lower back pain", "ankle instability lower back pain", "stretches for foot and back pain", "plantar fasciitis orthotic insoles"],
     author: "Foot Back Pain Editorial Team",
     publishDate: "2026-11-21",
@@ -654,6 +670,8 @@ export const articles: Article[] = [
     metaTitle: "Can My Back Pain Be From My Feet? Shoes, Gait & Active Ageing",
     summary: "Wondering 'can my back pain be from my feet?' Learn how worn-out shoes, ball-of-foot pain, and ground reaction forces affect your spine—and how to stay active.",
     metaDescription: "Wondering 'can my back pain be from my feet?' Learn how worn-out shoes, ball-of-foot pain, and ground reaction forces affect your spine—and how to stay active.",
+    heroImage: "/images/posts/post-08-footwear-active-ageing.jpg",
+    heroAlt: "Active older Australian couple enjoying a comfortable daily walk along a sunlit leafy park path",
     keywords: ["can my back pain be from my feet", "best footwear for lower back pain", "metatarsalgia limping back pain", "staying active with lower back pain", "replacement orthotic insoles for walking shoes"],
     author: "Foot Back Pain Editorial Team",
     publishDate: "2026-11-21",
@@ -740,6 +758,8 @@ export const articles: Article[] = [
     metaTitle: "When Foot Pain Affects Your Knees, Hips & Lower Back",
     summary: "Discover how bunions, big toe arthritis, flatfoot tendon strain, and midfoot arthritis trigger knee, hip, and lower back pain—plus non-surgical relief options.",
     metaDescription: "Discover how bunions, big toe arthritis, flatfoot tendon strain, and midfoot arthritis trigger knee, hip, and lower back pain—plus non-surgical relief options.",
+    heroImage: "/images/posts/post-09-knees-hips-orthopaedic.jpg",
+    heroAlt: "Clinician gently assessing foot, ankle and knee alignment for an older gentleman in a calm sunlit clinic",
     keywords: ["foot pain affecting knees hips and lower back", "big toe arthritis and lower back pain", "posterior tibial tendon dysfunction knee pain", "midfoot arthritis posture", "non-surgical orthotic offloading Australia"],
     author: "Foot Back Pain Editorial Team",
     publishDate: "2026-11-21",
@@ -820,6 +840,8 @@ export const articles: Article[] = [
     metaTitle: "Foot Pain Caused by Your Spine: Radiculopathy vs Neuroma",
     summary: "Burning, tingling, or forefoot pain doesn't always start in the foot. Learn how spinal stenosis and pinched lumbar nerves mimic Morton's neuroma—and what helps.",
     metaDescription: "Burning, tingling, or forefoot pain doesn't always start in the foot. Learn how spinal stenosis and pinched lumbar nerves mimic Morton's neuroma—and what helps.",
+    heroImage: "/images/posts/post-10-spine-nerve-foot-pain.jpg",
+    heroAlt: "Older woman sitting on a sunlit bed gently resting a hand on her forefoot beside roomy walking shoes",
     keywords: ["foot pain caused by your spine", "spinal stenosis foot pain", "morton's neuroma vs pinched nerve in back", "lumbar radiculopathy foot numbness", "metatarsal pads and offloader insoles"],
     author: "Foot Back Pain Editorial Team",
     publishDate: "2026-11-21",
@@ -896,189 +918,5 @@ export const articles: Article[] = [
       },
     ],
     related: ["surprising-link-between-back-pain-and-foot-pain", "can-my-feet-cause-back-pain-standing-walking", "when-foot-pain-affects-knees-hips-and-lower-back"],
-  },
-  {
-    slug: "feet-and-back-pain",
-    category: "Understanding pain",
-    title: "Can your feet affect your back?",
-    summary:
-      "Foot function and back pain can be connected, but a foot position or movement is rarely a complete explanation for low-back pain.",
-    readTime: "5 min read",
-    intro:
-      "It is understandable to wonder whether the way your feet move is contributing to back pain. The foot, ankle, knee, hip and spine work together during standing and walking, so changes in one area may influence how you move. That does not mean your feet are necessarily the cause: low-back pain is often multifactorial, with contributions from activity, sleep, stress, previous injury, general health and other factors.",
-    sections: [
-      {
-        heading: "A connected chain, not a single cause",
-        paragraphs: [
-          "When the foot contacts the ground, the rest of the lower limb adapts to keep you moving. Differences in foot shape, strength, mobility or comfort can change loading and movement for some people. Research on foot posture and lower-limb mechanics can help explain possible associations, but an association is not proof that one causes the other.",
-          "Pain also changes movement. Someone with back pain may walk differently, or someone with a painful foot may alter their stride. The direction of influence is not always clear, and a scan or observation of foot movement alone cannot identify the source of pain.",
-        ],
-      },
-      {
-        heading: "What a sensible assessment looks at",
-        paragraphs: [
-          "A clinician can consider your symptoms, activities, footwear, foot and ankle comfort, strength, balance, hip and back movement, and what makes the pain better or worse. The useful question is usually not “Are my feet the cause?” but “What factors may be changeable and relevant for me?”",
-          "A gradual return to comfortable activity, practical strength or mobility work, and support for sleep and overall health may be part of a plan. There is no single exercise or foot correction that works for everyone.",
-        ],
-      },
-      {
-        heading: "When to seek urgent help",
-        paragraphs: [
-          "Seek immediate medical attention for new bowel or bladder changes, numbness around the saddle or genital area, severe or progressive weakness in a leg, significant trauma, or fever with severe back symptoms. These symptoms need prompt assessment rather than self-treatment.",
-        ],
-      },
-    ],
-    sources: [
-      {
-        label: "WHO: Low back pain fact sheet",
-        url: "https://www.who.int/news-room/fact-sheets/detail/low-back-pain",
-      },
-      {
-        label: "Foot posture, foot function and low back pain research",
-        url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC3828513/",
-      },
-      {
-        label: "Mayo Clinic: Back pain symptoms and causes",
-        url: "https://www.mayoclinic.org/diseases-conditions/back-pain/symptoms-causes/syc-20369906",
-      },
-    ],
-    related: ["signs-to-notice", "orthotics-and-back-pain"],
-  },
-  {
-    slug: "signs-to-notice",
-    category: "Self-awareness",
-    title: "Signs to notice when foot and back symptoms overlap",
-    summary:
-      "Notice patterns in symptoms and function without assuming that every foot or leg sensation comes from the back—or that every back problem starts at the feet.",
-    readTime: "4 min read",
-    intro:
-      "Keeping track of symptoms can make a clinical conversation more useful. Look for patterns over time rather than trying to diagnose yourself from one sensation or one posture. Back pain can be felt in different places, and foot discomfort can have its own local causes.",
-    sections: [
-      {
-        heading: "Patterns worth recording",
-        paragraphs: [
-          "Note where symptoms are felt, when they started, whether they travel down a leg, and what activities or positions change them. Also record foot-specific clues such as local tenderness, rubbing, a change in footwear tolerance, swelling, or pain that is clearly linked to a particular part of the foot.",
-          "A short activity and symptom diary can include walking distance, sitting time, sleep, recent changes in training or work, and what helped. This is information to share with a qualified clinician—not a test that can identify the cause on its own.",
-        ],
-      },
-      {
-        heading: "Symptoms that deserve prompt attention",
-        paragraphs: [
-          "Arrange medical assessment for persistent or worsening pain, new numbness or tingling, or weakness that affects walking or everyday tasks. Seek immediate medical attention for bowel or bladder changes, saddle numbness, severe or progressive leg weakness, significant trauma, or fever with severe symptoms.",
-          "The urgency depends on the whole picture, including how quickly symptoms developed and your general health. If you are unsure whether a symptom is urgent, contact an appropriate medical service rather than relying on an online checklist.",
-        ],
-      },
-      {
-        heading: "Avoid over-interpreting alignment",
-        paragraphs: [
-          "Feet naturally vary in shape and movement, and an asymmetry is not automatically a problem. A visible arch, a worn shoe, or a change in walking style may be relevant, but it does not by itself establish the cause of back pain. Assessment should focus on symptoms, function and your goals.",
-        ],
-      },
-    ],
-    sources: [
-      {
-        label: "WHO: Low back pain fact sheet",
-        url: "https://www.who.int/news-room/fact-sheets/detail/low-back-pain",
-      },
-      {
-        label: "Mayo Clinic: Back pain symptoms and causes",
-        url: "https://www.mayoclinic.org/diseases-conditions/back-pain/symptoms-causes/syc-20369906",
-      },
-    ],
-    related: ["feet-and-back-pain", "finding-the-right-care"],
-  },
-  {
-    slug: "orthotics-and-back-pain",
-    category: "Treatment choices",
-    title: "Orthotics and back pain: what they can and cannot do",
-    summary:
-      "Orthotics may be appropriate for some foot problems, but they should not be presented as a general treatment for low-back pain.",
-    readTime: "5 min read",
-    intro:
-      "Orthotics are inserts or devices intended to change support, comfort or load around the foot. They can be useful when prescribed or selected for a specific foot condition or functional need. That is different from claiming that an insert will treat low-back pain for everyone.",
-    sections: [
-      {
-        heading: "A targeted tool, not a universal fix",
-        paragraphs: [
-          "If you have a painful foot condition, a clinician may discuss footwear, activity changes, exercises or an orthotic as part of a broader plan. The aim should be clear: for example, improving comfort or helping you tolerate a particular activity. Fit, comfort and your response over time matter.",
-          "Do not be discouraged from using an orthotic that is helping a diagnosed foot problem simply because it is not a proven stand-alone treatment for low-back pain. The right decision depends on the condition being treated, the device, and how it affects your function.",
-        ],
-      },
-      {
-        heading: "What guidelines say about low-back pain",
-        paragraphs: [
-          "NICE advises not to offer foot orthotics or rocker-sole shoes solely for managing low-back pain. This recommendation does not mean orthotics are never appropriate; it means low-back pain alone is not a sound reason to prescribe them as a routine intervention.",
-          "If someone suggests an insert, ask what specific problem it is intended to address, how success will be judged, how long to try it, and what to do if it increases pain. Be cautious of claims that an insert will realign the whole body or cure back pain.",
-        ],
-      },
-      {
-        heading: "Build a broader plan",
-        paragraphs: [
-          "Low-back pain often has more than one contributor. A plan may include staying as active as is comfortable, graded exercise, education and support for relevant physical or psychosocial factors. Seek immediate medical attention for bowel or bladder changes, saddle numbness, severe or progressive leg weakness, significant trauma, or fever with severe symptoms.",
-        ],
-      },
-    ],
-    sources: [
-      {
-        label: "NICE guideline NG59: Recommendations",
-        url: "https://www.nice.org.uk/guidance/ng59/chapter/recommendations",
-      },
-      {
-        label: "WHO: Low back pain fact sheet",
-        url: "https://www.who.int/news-room/fact-sheets/detail/low-back-pain",
-      },
-      {
-        label: "Foot posture, foot function and low back pain research",
-        url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC3828513/",
-      },
-    ],
-    related: ["feet-and-back-pain", "finding-the-right-care"],
-  },
-  {
-    slug: "finding-the-right-care",
-    category: "Getting support",
-    title: "Finding the right care for foot-related back concerns",
-    summary:
-      "Good care starts with a careful history, a proportionate examination and a plan that matches your symptoms—not with a promise of one perfect correction.",
-    readTime: "5 min read",
-    intro:
-      "You do not need to decide whether your feet or your back are “the problem” before asking for help. A qualified health professional can help sort out what needs attention, what can be monitored, and which treatments fit your goals and preferences.",
-    sections: [
-      {
-        heading: "Who can help?",
-        paragraphs: [
-          "A primary-care clinician or another appropriately qualified health professional can assess back symptoms and decide whether further care is needed. A physiotherapist may help with movement, activity and exercise planning. A podiatrist may assess a foot-specific condition, footwear and whether an orthotic has a clear role. The appropriate professional depends on the symptoms and local care pathways.",
-          "Be wary of anyone who guarantees that a single alignment finding explains all pain, promises a cure, or recommends an expensive device without explaining the intended benefit and alternatives.",
-        ],
-      },
-      {
-        heading: "Questions to take to an appointment",
-        paragraphs: [
-          "Ask what the working explanation is, what other possibilities have been considered, and what you can safely do now. If a device or treatment is suggested, ask what symptom or functional problem it targets, how long to trial it, what improvement would count as meaningful, and when the plan should be reviewed.",
-          "Bring a list of medicines and relevant health conditions, plus notes about onset, activity limits, sleep and any numbness or weakness. Clear information helps keep the assessment focused on your whole situation rather than on foot posture alone.",
-        ],
-      },
-      {
-        heading: "Know when it is urgent",
-        paragraphs: [
-          "Seek immediate medical attention for bowel or bladder changes, numbness in the saddle area, severe or progressive weakness in a leg, significant trauma, or fever with severe back symptoms. For other new, persistent or worsening symptoms, arrange timely medical advice. Do not delay urgent assessment while trying a new exercise, shoe or orthotic.",
-        ],
-      },
-    ],
-    sources: [
-      {
-        label: "WHO: Low back pain fact sheet",
-        url: "https://www.who.int/news-room/fact-sheets/detail/low-back-pain",
-      },
-      {
-        label: "NICE guideline NG59: Recommendations",
-        url: "https://www.nice.org.uk/guidance/ng59/chapter/recommendations",
-      },
-      {
-        label: "Mayo Clinic: Back pain symptoms and causes",
-        url: "https://www.mayoclinic.org/diseases-conditions/back-pain/symptoms-causes/syc-20369906",
-      },
-    ],
-    related: ["signs-to-notice", "orthotics-and-back-pain"],
   },
 ];
