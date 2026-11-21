@@ -2,7 +2,7 @@
 post_number: 2
 title: "How Hidden Foot Problems Cause Lower Back Pain (And 4 Practical Solutions for Lasting Relief)"
 meta_title: "How Foot Problems Cause Lower Back Pain: 4 Key Solutions"
-meta_description: "Learn how fallen arches, stiff big toes, calluses, and poor shoes strain your lower spine—plus 4 practical podiatry solutions and orthotic upgrades."
+meta_description: "Learn how fallen arches, stiff big toes, calluses, and poor shoes strain your lower spine, plus 4 practical podiatry solutions and orthotic upgrades."
 slug: "how-foot-problems-cause-lower-back-pain-solutions"
 category: "Foot Mechanics & Solutions"
 author: "Foot Back Pain Editorial Team"
@@ -28,11 +28,11 @@ related_slugs:
 > - **Watch how you push off:** When your big toe cannot bend smoothly upward as you step forward, your hip flexors tighten and tug directly on your lumbar vertebrae.
 > - **Target the root cause:** Combining supportive shoes, simple daily foot exercises, and [podiatrist-designed orthotic and offloader innersoles](https://podime.com.au?bg_ref=bDQ1o6IXhD) helps restore balanced posture from the ground up.
 
-One of the most puzzling things about lower back pain is that the true culprit does not always hurt. Many older Australians walk into a clinic with a nagging ache across the beltline of their lower back, insisting their feet feel "mostly fine"—only for a simple walking assessment to reveal that their feet have been quietly forcing their spine out of alignment for years.
+One of the most puzzling things about lower back pain is that the true culprit does not always hurt. Many older Australians walk into a clinic with a nagging ache across the beltline of their lower back, insisting their feet feel "mostly fine", only for a simple walking assessment to reveal that their feet have been quietly forcing their spine out of alignment for years.
 
 Understanding **how foot problems cause lower back pain** means looking beyond dramatic injuries. More often, spinal strain builds gradually from small, everyday mechanical bottlenecks in the way your feet roll, balance, and push off the ground.
 
-Here are the five most common foot-level culprits behind stubborn lumbar pain—followed by four practical solutions that address the problem at its base.
+Here are the five most common foot-level culprits behind stubborn lumbar pain, followed by four practical solutions that address the problem at its base.
 
 ---
 
@@ -55,7 +55,7 @@ During a healthy stride, your big toe joint must bend smoothly upward by roughly
 Because you can no longer roll cleanly forward over your big toe, your body improvises:
 - You shorten your stride or swing your leg slightly outward.
 - You overuse the muscles on the front of your thighs and hips (**quadriceps and hip flexors**) while underusing your buttock and hamstring muscles.
-- Tight, overworked hip flexors pull the front of your pelvis downward and forward—placing constant tug-of-war tension straight onto your lumbar spine.
+- Tight, overworked hip flexors pull the front of your pelvis downward and forward, placing constant tug-of-war tension straight onto your lumbar spine.
 
 ### 3. Uneven Weight Distribution From Corns, Calluses, or Sore Spots
 You do not need a major fracture to walk unevenly. Something as humble as a thick callus under the ball of the foot, a tender corn on a little toe, or mild heel soreness is enough to make your nervous system shift weight unconsciously onto the outer edge of one shoe or across to the opposite leg.
@@ -85,10 +85,10 @@ Restoring neutral alignment beneath your heels and arches immediately reduces th
 > [**Shop PodiMe Orthotics, Offloaders & Cushioned Pads →**](https://podime.com.au?bg_ref=bDQ1o6IXhD)
 
 ### Solution 2: Upgrade Your Daily Footwear Checklist
-Look at the shoes you wear most hours of the week—not the supportive runners sitting neatly in the wardrobe, but what is actually on your feet around the house and shops. Aim for footwear with:
+Look at the shoes you wear most hours of the week: not the supportive runners sitting neatly in the wardrobe, but what is actually on your feet around the house and shops. Aim for footwear with:
 - **A firm heel counter:** Squeeze the back of the shoe around the heel; it should feel sturdy, not collapse flat under your thumb.
 - **Torsional stability through the middle:** The shoe should bend near the toes where your foot naturally flexes, not fold in half through the middle of the arch.
-- **Roomy toe space and a removable liner:** Giving your big toe room to move freely—and allowing you to slide in [firm arch support insoles](https://podime.com.au?bg_ref=bDQ1o6IXhD)—makes every walk kinder to your spine. (Read more in our guide to [footwear, limping, and active ageing](/resources/can-back-pain-be-from-my-feet-footwear-active-ageing).)
+- **Roomy toe space and a removable liner:** Giving your big toe room to move freely, and allowing you to slide in [firm arch support insoles](https://podime.com.au?bg_ref=bDQ1o6IXhD), makes every walk kinder to your spine. (Read more in our guide to [footwear, limping, and active ageing](/resources/can-back-pain-be-from-my-feet-footwear-active-ageing).)
 
 ### Solution 3: Practise Gentle Daily Foot and Big-Toe Exercises
 Just five minutes a day while the kettle boils or while sitting in a sturdy chair can wake up sleepy foot muscles:
@@ -123,4 +123,4 @@ Some people notice less lower-back fatigue during standing and shopping within t
 
 ---
 
-*Editorial & Affiliate Disclosure: This article is for general educational information only and is not personal medical advice. Always consult your GP, podiatrist, or physiotherapist for diagnosis. Some links in this article (including PodiMe links) are affiliate links—if you choose to purchase through them, Foot Back Pain may earn a small commission at no extra cost to you.*
+*Editorial & Affiliate Disclosure: This article is for general educational information only and is not personal medical advice. Always consult your GP, podiatrist, or physiotherapist for diagnosis. Some links in this article (including PodiMe links) are affiliate links; if you choose to purchase through them, Foot Back Pain may earn a small commission at no extra cost to you.*

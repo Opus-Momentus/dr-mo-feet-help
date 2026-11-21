@@ -2,7 +2,7 @@
 post_number: 4
 title: "Are Your Feet Causing Your Back Pain? How Natural Shock Absorption Protects an Ageing Spine"
 meta_title: "Are Your Feet Causing Your Back Pain? Shock Absorption & Spine"
-meta_description: "Find out how flat feet, high arches, pronation, and footwear rob your spine of natural shock absorption—and how cushioned orthotic support protects your back."
+meta_description: "Find out how flat feet, high arches, pronation, and footwear rob your spine of natural shock absorption, and how cushioned orthotic support protects your back."
 slug: "are-your-feet-causing-your-back-pain-shock-absorption"
 category: "Spinal Shock Absorption"
 author: "Foot Back Pain Editorial Team"
@@ -40,7 +40,7 @@ As we move into our fifties, sixties, and beyond, the natural fat pads beneath o
 
 When you walk at an easy, everyday pace, each heel strike sends a force roughly equal to **1.2 to 1.5 times your body weight** upward from the footpath. Over a gentle thirty-minute walk, that adds up to thousands of mini-impacts.
 
-In a well-aligned foot, the arch lowers just a few millimetres as weight lands on it—storing and dispersing energy like a leaf spring—before rebounding smoothly to propel you forward. When that spring is either too collapsed or too rigid, the leftover vibration travels straight up your shins, knees, and hips into the small facet joints and discs of your lumbar spine.
+In a well-aligned foot, the arch lowers just a few millimetres as weight lands on it (storing and dispersing energy like a leaf spring) before rebounding smoothly to propel you forward. When that spring is either too collapsed or too rigid, the leftover vibration travels straight up your shins, knees, and hips into the small facet joints and discs of your lumbar spine.
 
 ---
 
@@ -50,7 +50,7 @@ In a well-aligned foot, the arch lowers just a few millimetres as weight lands o
 Many people assume only "flat feet" cause trouble, yet either extreme of arch height compromises spinal comfort:
 
 - **Flat or fallen arches:** When there is little to no arch clearance under the instep, the natural spring has already bottomed out. With nothing left to flex on impact, each step thuds upward, leaving the muscles and discs of the lower back to soak up the jolt.
-- **High, rigid arches:** An unusually high arch often refuses to flatten enough when your foot meets the ground. Because impact stays concentrated on two small zones—the heel and the ball of the foot—shock waves bypass the arch altogether and jar the joints of the knees, hips, and lower spine.
+- **High, rigid arches:** An unusually high arch often refuses to flatten enough when your foot meets the ground. Because impact stays concentrated on two small zones (the heel and the ball of the foot), shock waves bypass the arch altogether and jar the joints of the knees, hips, and lower spine.
 
 ### 2. Pronation Imbalances: Rolling Inward vs Rolling Outward
 "Pronation" simply describes how your foot rolls from heel strike to push-off. Healthy walking uses a gentle, controlled inward roll. Trouble starts when that roll goes too far in either direction:
@@ -59,12 +59,12 @@ Many people assume only "flat feet" cause trouble, yet either extreme of arch he
 - **Underpronation or supination (rolling outward):** Shifts body weight onto the narrow outer edge of the shoe, reducing stability and creating uneven lateral tension up the sides of the pelvis and spine.
 
 ### 3. Footwear That Distorts Your Natural Stance
-Few everyday habits alter spinal posture faster than footwear. Elevated heels—even modest dress heels or heeled boots—tip your body weight forward onto the ball of the foot and lock the foot into an artificially rigid, high-arched stance with poor shock absorption. To stop yourself pitching forward on your nose, you automatically arch your lower back harder, compressing the joints at the base of your spine.
+Few everyday habits alter spinal posture faster than footwear. Elevated heels, including modest dress heels or heeled boots, tip your body weight forward onto the ball of the foot and lock the foot into an artificially rigid, high-arched stance with poor shock absorption. To stop yourself pitching forward on your nose, you automatically arch your lower back harder, compressing the joints at the base of your spine.
 
 At the opposite end of the wardrobe, wafer-thin flat sandals, thongs, and worn-out slippers offer no arch cradle and no heel cushioning on hard kitchen tiles or paving stones.
 
 ### 4. Foot Injuries, Bunions, and Subtle Limping
-You do not need a plaster cast to walk out of alignment. A prominent bunion, a stubbed or arthritic toe, a tender heel, or a lingering ankle twinge changes how confidently you plant your foot. Even a barely noticeable limp—shortening one step or rolling off the side of your shoe—forces your spine to bend and twist asymmetrically thousands of times a day. Over months, temporary compensation hardens into chronic back stiffness. (See how this affects middle joints in [when foot pain starts affecting your knees, hips, or lower back](/resources/when-foot-pain-affects-knees-hips-and-lower-back).)
+You do not need a plaster cast to walk out of alignment. A prominent bunion, a stubbed or arthritic toe, a tender heel, or a lingering ankle twinge changes how confidently you plant your foot. Even a barely noticeable limp, such as shortening one step or rolling off the side of your shoe, forces your spine to bend and twist asymmetrically thousands of times a day. Over months, temporary compensation hardens into chronic back stiffness. (See how this affects middle joints in [when foot pain starts affecting your knees, hips, or lower back](/resources/when-foot-pain-affects-knees-hips-and-lower-back).)
 
 ---
 
@@ -83,13 +83,13 @@ Protecting an older spine does not mean avoiding walking. In fact, comfortable d
 
 1. **Match your cushioning to your surfaces:** If most of your walking happens on concrete footpaths, shopping-centre terrazzo, or timber and tile floors at home, prioritise shoes with resilient midsoles enhanced by [cushioned orthotic innersoles](https://podime.com.au?bg_ref=bDQ1o6IXhD).
 2. **Save dress heels for short occasions:** Keep heel heights low and broad for stability, and slip into supportive walking shoes whenever you plan to cover real ground.
-3. **Address sore toes and bunions early:** Never "just limp through" a rubbing bunion or sore forefoot. Using protective [bunion guards, toe sleeves, or gel arch pads](https://podime.com.au?bg_ref=bDQ1o6IXhD)—and seeing a podiatrist when needed—keeps your stride even and your spine level.
+3. **Address sore toes and bunions early:** Never "just limp through" a rubbing bunion or sore forefoot. Using protective [bunion guards, toe sleeves, or gel arch pads](https://podime.com.au?bg_ref=bDQ1o6IXhD), along with seeing a podiatrist when needed, keeps your stride even and your spine level.
 
 ---
 
 ## Caring for Spine and Foundation Together
 
-Chiropractors, physiotherapists, and podiatrists increasingly agree on one core principle: lasting spinal comfort relies on a balanced foundation. If you are wondering whether your feet are behind your aching back, check how your shoes absorb shock today—and read our companion breakdown of [foot alignment and the kinetic chain](/resources/foot-alignment-and-lower-back-pain-kinetic-chain) to see how every joint between your ankle and lower back works as one team.
+Chiropractors, physiotherapists, and podiatrists increasingly agree on one core principle: lasting spinal comfort relies on a balanced foundation. If you are wondering whether your feet are behind your aching back, check how your shoes absorb shock today, and read our companion breakdown of [foot alignment and the kinetic chain](/resources/foot-alignment-and-lower-back-pain-kinetic-chain) to see how every joint between your ankle and lower back works as one team.
 
 ---
 
@@ -99,7 +99,7 @@ Chiropractors, physiotherapists, and podiatrists increasingly agree on one core 
 With natural ageing, the protective fat pads under our heels and balls of the feet gradually thin and lose bounce, while spinal discs hold slightly less fluid. On unyielding surfaces like tiles and concrete, less natural underfoot padding means more raw impact reaches the lower spine unless your footwear and insoles supply that missing shock absorption.
 
 ### Are soft memory-foam insoles from the supermarket enough for back pain?
-Very soft, thin foam inserts often feel pleasant for the first ten minutes in the shop, but they flatten completely under full body weight and offer zero structural arch control. Podiatry-grade materials—such as structured orthotic shells paired with medical-grade Poron cushioning like those used by PodiMe—both absorb shock *and* hold your arch steady step after step.
+Very soft, thin foam inserts often feel pleasant for the first ten minutes in the shop, but they flatten completely under full body weight and offer zero structural arch control. Podiatry-grade materials (such as structured orthotic shells paired with medical-grade Poron cushioning like those used by PodiMe) both absorb shock *and* hold your arch steady step after step.
 
 ### What is the difference between overpronation and underpronation?
 **Overpronation** means your foot rolls too far inward as you step, flattening the arch and rotating the leg inward. **Underpronation** (also called supination) means your foot stays rolled toward its outer edge with a stiff arch that absorbs shock poorly. Both patterns can increase strain on the lower back.
@@ -109,4 +109,4 @@ Yes. Even a subtle limp tilts your pelvis and makes muscles on one side of your 
 
 ---
 
-*Editorial & Affiliate Disclosure: This article is for general educational information only and is not personal medical advice. Always consult your GP, podiatrist, or physiotherapist for diagnosis. Some links in this article (including PodiMe links) are affiliate links—if you choose to purchase through them, Foot Back Pain may earn a small commission at no extra cost to you.*
+*Editorial & Affiliate Disclosure: This article is for general educational information only and is not personal medical advice. Always consult your GP, podiatrist, or physiotherapist for diagnosis. Some links in this article (including PodiMe links) are affiliate links; if you choose to purchase through them, Foot Back Pain may earn a small commission at no extra cost to you.*
