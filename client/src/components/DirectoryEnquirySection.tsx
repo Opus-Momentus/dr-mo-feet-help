@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { ArrowUpRight, Check, Mail, Send, ShieldCheck } from 'lucide-react';
+import { Check, Send, ShieldCheck } from 'lucide-react';
 
-const RECIPIENT_EMAIL = 'mcmoandrew@gmail.com';
-const FORMSUBMIT_ENDPOINT = `https://formsubmit.co/ajax/${RECIPIENT_EMAIL}`;
+const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/mcmoandrew@gmail.com';
 
 const PROFESSIONS = [
   'Podiatrist',
@@ -65,27 +64,6 @@ export function DirectoryEnquirySection() {
       ? `Other (${form.otherProfession.trim()})`
       : form.profession;
 
-  const buildMailtoHref = () => {
-    const subject = `Directory Listing Enquiry: ${form.practiceName || 'Australian Practice'}`;
-    const bodyLines = [
-      `Practice / Business Name: ${form.practiceName}`,
-      `Contact Name & Role: ${form.contactName}`,
-      `Profession / Discipline: ${resolvedProfession}`,
-      `Email: ${form.email}`,
-      `Phone: ${form.phone || 'Not provided'}`,
-      `Location: ${form.suburb}, ${form.state} ${form.postcode}`,
-      `Website: ${form.website || 'Not provided'}`,
-      `Ahpra Registration: ${form.ahpraNumber || 'Not provided'}`,
-      '',
-      'Services & Areas of Focus:',
-      form.services,
-      '',
-      'Additional Notes:',
-      form.notes || 'None',
-    ];
-    return `mailto:${RECIPIENT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
-  };
-
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (form.honey) return;
@@ -134,7 +112,7 @@ export function DirectoryEnquirySection() {
       setErrorMessage(
         err instanceof Error && err.message
           ? err.message
-          : 'We could not send your enquiry automatically. You can email us directly using the button below.'
+          : 'We could not send your enquiry right now. Please check your connection and try again.'
       );
     }
   }
@@ -362,8 +340,8 @@ export function DirectoryEnquirySection() {
                   <label htmlFor="website">Practice website</label>
                   <input
                     id="website"
-                    type="url"
-                    placeholder="https://www.yourclinic.com.au"
+                    type="text"
+                    placeholder="www.yourclinic.com.au"
                     value={form.website}
                     onChange={e => updateField('website', e.target.value)}
                   />
@@ -421,9 +399,6 @@ export function DirectoryEnquirySection() {
               {status === 'error' && (
                 <div className="enquiry-error" role="alert">
                   <p>{errorMessage}</p>
-                  <a className="text-link" href={buildMailtoHref()}>
-                    <Mail size={14} /> Send via your email app instead <ArrowUpRight size={14} />
-                  </a>
                 </div>
               )}
 
@@ -432,9 +407,6 @@ export function DirectoryEnquirySection() {
                   {status === 'submitting' ? 'Sending enquiry...' : 'Submit listing enquiry'}
                   <Send size={15} />
                 </button>
-                <span className="enquiry-direct-note">
-                  Prefer email? <a href={`mailto:${RECIPIENT_EMAIL}?subject=${encodeURIComponent('Directory Listing Enquiry')}`}>{RECIPIENT_EMAIL}</a>
-                </span>
               </div>
             </form>
           )}
