@@ -27,7 +27,6 @@ for (const route of allRoutes) {
 
   if (article) {
     const fullHeroUrl = `${SITE_URL}${article.heroImage}`;
-    extraHead += `\n    <meta property="og:image" content="${escape(fullHeroUrl)}" />\n    <meta name="twitter:image" content="${escape(fullHeroUrl)}" />`;
 
     const graph: Record<string, unknown>[] = [
       {
@@ -89,13 +88,20 @@ for (const route of allRoutes) {
     .replace('</head>', `${extraHead}\n  </head>`)
     .replace('<div id="root"></div>', `<div id="root">${content}</div>`);
 
-  if (article && article.keywords && article.keywords.length > 0) {
-    html = html.replace(
-      /<meta name="keywords" content="[^"]*"\s*\/>/,
-      `<meta name="keywords" content="${escape(article.keywords.join(', '))}" />`
-    );
-    html = html.replace(/<meta property="og:type" content="website"\s*\/>/, '<meta property="og:type" content="article" />');
-    html = html.replace(/<meta name="twitter:card" content="summary"\s*\/>/, '<meta name="twitter:card" content="summary_large_image" />');
+  if (article) {
+    const fullHeroUrl = `${SITE_URL}${article.heroImage}`;
+    html = html
+      .replace(/<meta property="og:image" content="[^"]*"\s*\/>/, `<meta property="og:image" content="${escape(fullHeroUrl)}" />`)
+      .replace(/\n?\s*<meta property="og:image:width" content="[^"]*"\s*\/>/, '')
+      .replace(/\n?\s*<meta property="og:image:height" content="[^"]*"\s*\/>/, '')
+      .replace(/<meta name="twitter:image" content="[^"]*"\s*\/>/, `<meta name="twitter:image" content="${escape(fullHeroUrl)}" />`)
+      .replace(/<meta property="og:type" content="website"\s*\/>/, '<meta property="og:type" content="article" />');
+    if (article.keywords && article.keywords.length > 0) {
+      html = html.replace(
+        /<meta name="keywords" content="[^"]*"\s*\/>/,
+        `<meta name="keywords" content="${escape(article.keywords.join(', '))}" />`
+      );
+    }
   }
 
   const folder = route === '/' ? base : join(base, route.slice(1));

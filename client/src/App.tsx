@@ -127,8 +127,19 @@ function renderSectionBlock(block: SectionBlock, idx: number): React.ReactNode {
   }
 }
 
-function Mark() { return <span className="brand-mark" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none"><path d="M12 41c8 0 10-19 19-19 9 0 11 19 21 19" stroke="currentColor" strokeWidth="5" strokeLinecap="round"/><circle cx="32" cy="15" r="3" fill="currentColor"/></svg></span>; }
-function Logo({ light = false }: {light?: boolean}) { return <a className={`logo ${light ? 'logo-light' : ''}`} href="/" aria-label="footbackpain home"><Mark/><span>footbackpain<span className="logo-dot">.</span></span></a>; }
+function Mark() {
+  return (
+    <span className="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 100 104" fill="none">
+        <path className="mark-leg" d="M27 20C13 35 13 54 22 69C26 75 33 76 36 73C29 70 25 60 25 46C25 34 27 26 29 21C29 19 27 20 27 20Z"/>
+        <path className="mark-leg" d="M53 7C53 15 49 20 42 26C37 31 38 42 39 51C41 61 53 69 69 75C78 79 86 80 91 81C94 82 93 86 89 86C78 86 66 81 52 74C37 66 32 56 32 42C32 30 36 22 44 16C47 13 48 9 49 6C51 4 53 7 53 7Z"/>
+        <path className="mark-accent" d="M42 28C48 26 53 32 52 41C46 40 41 35 42 28Z"/>
+        <path className="mark-sole" d="M16 74C10 83 14 95 28 96C38 97 47 93 58 94C68 95 79 96 88 94C93 93 93 89 89 88C78 88 65 88 52 84C39 81 29 77 21 73C18 71 16 74 16 74Z"/>
+      </svg>
+    </span>
+  );
+}
+function Logo({ light = false }: {light?: boolean}) { return <a className={`logo ${light ? 'logo-light' : ''}`} href="/" aria-label="footbackpain home"><Mark/><span>footbackpain<span className="logo-tld">.com</span></span></a>; }
 function ArrowLink({ href, children, external = false, className = '' }: {href: string; children: React.ReactNode; external?: boolean; className?: string}) { return <a href={href} className={`text-link ${className}`} {...(external ? externalProps : {})}>{children} {external ? <ArrowUpRight size={15}/> : <ArrowRight size={15}/>}</a>; }
 
 function Header() {
