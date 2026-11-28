@@ -169,7 +169,7 @@ export function ProviderEnquiryForm({ provider }: { provider: Provider }) {
             <textarea
               id="lead-notes"
               rows={2}
-              placeholder="Optional — e.g. morning appointments preferred"
+              placeholder="Optional: e.g. morning appointments preferred"
               value={notes}
               onChange={e => setNotes(e.target.value)}
             />

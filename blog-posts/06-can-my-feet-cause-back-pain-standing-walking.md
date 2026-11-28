@@ -2,7 +2,7 @@
 post_number: 6
 title: "Can My Feet Cause Back Pain? Why Standing on Hard Floors Hurts Your Lower Back (And How to Fix It)"
 meta_title: "Can My Feet Cause Back Pain When Standing or Walking?"
-meta_description: "Does your lower back ache when standing or walking, then ease as soon as you sit down? Learn why your feet may be to blame—and simple ways to fix it."
+meta_description: "Does your lower back ache when standing or walking, then ease as soon as you sit down? Learn why your feet may be to blame, and simple ways to fix it."
 slug: "can-my-feet-cause-back-pain-standing-walking"
 category: "Everyday Mobility"
 author: "Foot Back Pain Editorial Team"
@@ -24,7 +24,7 @@ related_slugs:
 # Can My Feet Cause Back Pain? Why Standing on Hard Floors Hurts Your Lower Back (And How to Fix It)
 
 > **Key Takeaways**
-> - **The "sit-down relief" test is a major clue:** If your lower back aches after standing at the kitchen bench or walking around the shops—yet settles within minutes of sitting—your feet may be driving the strain.
+> - **The "sit-down relief" test is a major clue:** If your lower back aches after standing at the kitchen bench or walking around the shops, yet settles within minutes of sitting, your feet may be driving the strain.
 > - **Guarding a sore foot strains your spine:** Subconsciously favouring a heel spur, plantar fasciitis, bunion, or painful corn throws your hips and back off balance.
 > - **Support indoor and outdoor steps alike:** Wearing structured shoes fitted with [supportive orthotic insoles and heel cushioning](https://podime.com.au?bg_ref=bDQ1o6IXhD) calms standing fatigue right at its source.
 
@@ -32,7 +32,7 @@ related_slugs:
 
 Podiatrists hear variations of this question almost every day. When people search **"Can my feet cause back pain?"**, it is usually because they have noticed an unmistakable link between time spent upright on hard surfaces and a creeping, heavy ache across the base of their spine.
 
-The short, reassuring answer is **yes—your feet can absolutely cause or worsen lower back pain**. Better still, once you understand *why* standing and walking trigger that upward domino effect, the steps to calm it down are remarkably practical.
+The short, reassuring answer is **yes, your feet can absolutely cause or worsen lower back pain**. Better still, once you understand *why* standing and walking trigger that upward domino effect, the steps to calm it down are remarkably practical.
 
 ---
 
@@ -40,7 +40,7 @@ The short, reassuring answer is **yes—your feet can absolutely cause or worsen
 
 Think about what changes the instant you lower yourself into a dining chair. While standing or walking, the twenty-six bones and thirty-three joints of each foot carry your entire body weight against unyielding timber, tile, or concrete. If your arches sag inward, roll outward, or flinch away from a sore spot, every joint between your ankles and your pelvis shifts out of neutral to keep you balanced.
 
-The moment you sit down, your pelvis rests directly on the seat cushion. Your feet switch off from weight-bearing duty, inward leg rotation stops, and overworked lumbar muscles finally let go of their protective grip. That contrast—aching upright, comfortable seated—is one of the clearest everyday signs that your foundation needs better support.
+The moment you sit down, your pelvis rests directly on the seat cushion. Your feet switch off from weight-bearing duty, inward leg rotation stops, and overworked lumbar muscles finally let go of their protective grip. That contrast (aching upright, comfortable seated) is one of the clearest everyday signs that your foundation needs better support.
 
 *(Note: Lumbar spinal stenosis in older adults also eases when sitting forward; if standing pain comes with leg numbness, heaviness, or tingling down both legs, check our guide on [foot pain caused by your spine](/resources/foot-pain-caused-by-your-spine-radiculopathy-vs-neuroma) and speak with your GP.)*
 
@@ -49,13 +49,13 @@ The moment you sit down, your pelvis rests directly on the seat cushion. Your fe
 ## Four Ways Your Feet Trigger Standing and Walking Backache
 
 ### 1. Fallen Arches and Inward Rolling (Overpronation)
-When arches flatten under prolonged standing—such as preparing Sunday lunch on tiled kitchen floors or queuing at the pharmacy—your lower legs rotate inward. That subtle twist pulls your pelvis forward, exaggerating the curve of your lower back and tiring out the postural muscles along your spine.
+When arches flatten under prolonged standing (such as preparing Sunday lunch on tiled kitchen floors or queuing at the pharmacy), your lower legs rotate inward. That subtle twist pulls your pelvis forward, exaggerating the curve of your lower back and tiring out the postural muscles along your spine.
 
 ### 2. Outward Rolling and High Arches (Supination)
 If your feet naturally tilt slightly outward with high, stiff arches, they struggle to spread body weight evenly across the sole. Instead of cushioning the micro-movements of standing and walking, impact concentrates under the heel and outer forefoot, sending jarring stress straight up into your knees, hips, and lumbar joints.
 
 ### 3. Leg-Length Discrepancies
-Not everyone stands on two identical pillars. Some older adults have a small **structural** leg-length difference—especially common after total hip or knee replacement surgery, or an old leg injury. Others develop a **functional** difference when one arch flattens noticeably more than its partner. Either way, standing on an uneven base tilts the pelvis and forces one side of your lower back to work twice as hard.
+Not everyone stands on two identical pillars. Some older adults have a small **structural** leg-length difference, which is especially common after total hip or knee replacement surgery, or an old leg injury. Others develop a **functional** difference when one arch flattens noticeably more than its partner. Either way, standing on an uneven base tilts the pelvis and forces one side of your lower back to work twice as hard.
 
 ### 4. Gait Compensation From Everyday Foot Soreness
 Pain is a master puppeteer. When you have **plantar fasciitis**, a bruised heel, a sensitive **bunion**, or even a sharp **corn** under a toe, your nervous system quietly rewrites how you stand and walk to avoid pressing on the tender spot:
@@ -64,7 +64,7 @@ Pain is a master puppeteer. When you have **plantar fasciitis**, a bruised heel,
 - You roll onto the outside border of your shoe to spare a sore inner heel or big toe.
 - You shorten one stride, creating an asymmetric sway through your hips and lower spine.
 
-Your foot feels protected—but within days or weeks, your lower back starts complaining loudly about the uneven deal.
+Your foot feels protected, but within days or weeks, your lower back starts complaining loudly about the uneven deal.
 
 ---
 
@@ -79,7 +79,7 @@ If heel tenderness or arch collapse is making you shift weight awkwardly, tackli
 > ### Stand Longer and Walk Easier With PodiMe Foot Support
 > Whether you are standing in the kitchen, pottering in the shed, or strolling the local shops, **PodiMe** gives your feet professional podiatry-designed backing without a hefty price tag.
 >
-> Slip **PodiMe Orthotic Innersoles** (available in Full-Length and 3/4 styles) into your indoor and outdoor shoes to hold fallen arches steady—or pair **Podi Poron Heel Pads** and **PodiMe Offloader Innersoles** to cushion plantar heel soreness so you stop favouring one leg.
+> Slip **PodiMe Orthotic Innersoles** (available in Full-Length and 3/4 styles) into your indoor and outdoor shoes to hold fallen arches steady, or pair **Podi Poron Heel Pads** and **PodiMe Offloader Innersoles** to cushion plantar heel soreness so you stop favouring one leg.
 >
 > [**Discover PodiMe's Podiatrist-Designed Insoles & Heel Relief →**](https://podime.com.au?bg_ref=bDQ1o6IXhD)
 
@@ -105,7 +105,7 @@ Want to check more clues? Read our companion article on [5 telltale signs your l
 Slow "museum or shopping-centre walking" involves lots of stop-start standing on rock-hard polished concrete or tiles, giving your back muscles almost no rhythmic movement break while your arches flatten under continuous load. Park paths are often slightly softer, and a steady walking rhythm shares work across more muscle groups.
 
 ### Can plantar fasciitis cause lower back pain?
-Indirectly, yes—very often. Because classic plantar fasciitis makes the underside of the heel sharp or tender, most people subconsciously walk on the outer edge of their foot, shorten their step, or lean onto the opposite leg. That protective gait shift quickly strains the hips and lower spine.
+Indirectly, yes, very often. Because classic plantar fasciitis makes the underside of the heel sharp or tender, most people subconsciously walk on the outer edge of their foot, shorten their step, or lean onto the opposite leg. That protective gait shift quickly strains the hips and lower spine.
 
 ### What if I had a hip or knee replacement and now get backache when standing?
 Joint replacement surgery occasionally leaves a small difference in functional leg length or changes how your foot tracks on that side. A podiatrist can measure both legs accurately and advise whether orthotic support or a small heel lift could level your pelvis.
@@ -115,4 +115,4 @@ If you have tiled, concrete, slate, or hardwood floors and experience standing b
 
 ---
 
-*Editorial & Affiliate Disclosure: This article is for general educational information only and is not personal medical advice. Always consult your GP, podiatrist, or physiotherapist for diagnosis. Some links in this article (including PodiMe links) are affiliate links—if you choose to purchase through them, Foot Back Pain may earn a small commission at no extra cost to you.*
+*Editorial & Affiliate Disclosure: This article is for general educational information only and is not personal medical advice. Always consult your GP, podiatrist, or physiotherapist for diagnosis. Some links in this article (including PodiMe links) are affiliate links; if you choose to purchase through them, Foot Back Pain may earn a small commission at no extra cost to you.*

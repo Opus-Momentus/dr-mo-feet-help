@@ -192,7 +192,7 @@ export function DirectoryEnquirySection() {
               Many of our initial directory entries are compiled from publicly available practice information. If your clinic already appears on footbackpain, you can claim your business listing by contacting us through the enquiry form below.
             </p>
             <p>
-              Once your listing is claimed and verified with our team, you can request updates whenever your clinic details change—so patients always see accurate, helpful information before they reach out.
+              Once your listing is claimed and verified with our team, you can request updates whenever your clinic details change, so patients always see accurate, helpful information before they reach out.
             </p>
             <button type="button" className="btn btn-dark" onClick={startClaimFlow}>
               Claim your listing <ArrowDown size={15} />
@@ -573,7 +573,7 @@ export function DirectoryEnquirySection() {
                   <input
                     id="ahpra-number"
                     type="text"
-                    placeholder="Optional — helps us verify registered practitioners"
+                    placeholder="Optional: helps us verify registered practitioners"
                     value={form.ahpraNumber}
                     onChange={e => updateField('ahpraNumber', e.target.value)}
                   />
@@ -605,8 +605,8 @@ export function DirectoryEnquirySection() {
                     rows={2}
                     placeholder={
                       isClaim
-                        ? 'Optional — e.g. details for sending clinic photos, or preferred verification contact.'
-                        : 'Optional — opening hours, multiple clinic locations, or referral notes.'
+                        ? 'Optional: e.g. details for sending clinic photos, or preferred verification contact.'
+                        : 'Optional: opening hours, multiple clinic locations, or referral notes.'
                     }
                     value={form.notes}
                     onChange={e => updateField('notes', e.target.value)}

@@ -2,7 +2,7 @@
 post_number: 9
 title: "When Foot Pain Starts Affecting Your Knees, Hips, or Lower Back: An Orthopaedic Perspective on Joint Compensation"
 meta_title: "When Foot Pain Affects Your Knees, Hips & Lower Back"
-meta_description: "Discover how bunions, big toe arthritis, flatfoot tendon strain, and midfoot arthritis trigger knee, hip, and lower back pain—plus non-surgical relief options."
+meta_description: "Discover how bunions, big toe arthritis, flatfoot tendon strain, and midfoot arthritis trigger knee, hip, and lower back pain, plus non-surgical relief options."
 slug: "when-foot-pain-affects-knees-hips-and-lower-back"
 category: "Orthopaedic Insights"
 author: "Foot Back Pain Editorial Team"
@@ -24,17 +24,17 @@ related_slugs:
 # When Foot Pain Starts Affecting Your Knees, Hips, or Lower Back: An Orthopaedic Perspective on Joint Compensation
 
 > **Key Takeaways**
-> - **Your body protects sore feet automatically:** Shortening your stride, rolling onto the outer edge of your shoe, or avoiding big-toe push-off spares a painful foot—at the expense of your knees, hips, and lower back.
+> - **Your body protects sore feet automatically:** Shortening your stride, rolling onto the outer edge of your shoe, or avoiding big-toe push-off spares a painful foot, at the expense of your knees, hips, and lower back.
 > - **Age-related foot conditions ripple upward:** Bunions, big-toe arthritis, adult flatfoot tendon strain, and midfoot arthritis each create distinct patterns of upper-joint fatigue.
 > - **Non-surgical care comes first:** Supportive footwear changes, physiotherapy, and [orthotic offloading and bunion support](https://podime.com.au?bg_ref=bDQ1o6IXhD) resolve a large share of secondary joint strain without surgery.
 
 Most of us have experienced what happens after stepping on a sharp bindii or nursing a blister on a long walk: within ten minutes of hobbling slightly to spare your foot, your opposite hip or lower back starts grumbling in protest.
 
-Now imagine that protective adjustment happening at ten percent volume—quietly, automatically, and every single day for two or three years.
+Now imagine that protective adjustment happening at ten percent volume: quietly, automatically, and every single day for two or three years.
 
-From an orthopaedic perspective, **foot pain affecting knees, hips, and lower back** is rarely mysterious once you watch the whole lower limb move together. When a joint or tendon in the foot grows stiff or sore, your nervous system prioritizes immediate protection. Over months of repetitive steps, however, those subtle detours shift rotational and compressive forces onto neighbouring joints higher up the chain.
+From an orthopaedic perspective, **foot pain affecting knees, hips, and lower back** is rarely mysterious once you watch the whole lower limb move together. When a joint or tendon in the foot grows stiff or sore, your nervous system prioritises immediate protection. Over months of repetitive steps, however, those subtle detours shift rotational and compressive forces onto neighbouring joints higher up the chain.
 
-Understanding *which* foot conditions trigger wider body strain—and how conservative, non-surgical care unwinds that compensation—helps you protect every joint from ankle to spine.
+Understanding *which* foot conditions trigger wider body strain, and how conservative, non-surgical care unwinds that compensation, helps you protect every joint from ankle to spine.
 
 ---
 
@@ -54,12 +54,12 @@ Each adjustment seems tiny on its own. Repeated several thousand times daily, th
 ## 3 Common Foot Conditions That Trigger Knee, Hip, and Back Pain After 50
 
 ### 1. Bunions and Big-Toe Arthritis (Hallux Rigidus)
-Your big toe carries roughly **half of your body's push-off load** at the end of every step. When a progressive **bunion** nudges the big toe out of line—or wear-and-tear **arthritis** stiffens the big-toe joint—rolling directly over the front of the foot becomes uncomfortable or mechanically blocked.
+Your big toe carries roughly **half of your body's push-off load** at the end of every step. When a progressive **bunion** nudges the big toe out of line, or wear-and-tear **arthritis** stiffens the big-toe joint, rolling directly over the front of the foot becomes uncomfortable or mechanically blocked.
 
 To get around that roadblock, you naturally roll off the outside toes instead. That outward roll twists the ankle and knee laterally, shortens hip extension, and forces your lower back to arch and rotate slightly to complete each stride. Many older adults are surprised to learn their outer-knee ache or lower-back stiffness began with an arthritic big toe. (Read more on big-toe push-off in [how hidden foot problems cause lower back pain](/resources/how-foot-problems-cause-lower-back-pain-solutions).)
 
 ### 2. Flat Feet and Tendon Dysfunction (Posterior Tibial Tendon Strain)
-Running down the inside of your calf and ankle to hold up your arch is a hardworking cable called the **posterior tibial tendon**. In middle and older age, this tendon can become stretched, inflamed, or weakened—leading to progressive flattening of one or both arches (often called **adult-acquired flatfoot**).
+Running down the inside of your calf and ankle to hold up your arch is a hardworking cable called the **posterior tibial tendon**. In middle and older age, this tendon can become stretched, inflamed, or weakened, leading to progressive flattening of one or both arches (often called **adult-acquired flatfoot**).
 
 As the arch drops inward, rotational torque increases sharply up the shin bone. Very often, this shows up first not as back pain alone, but as **inner-knee soreness** after standing or walking, followed by outer-hip fatigue and aching across the lower lumbar spine.
 
@@ -72,9 +72,9 @@ With less natural shock absorption and spring through the midfoot, standing and 
 
 ## Conservative Care First: How Specialists Settle Cascading Joint Pain
 
-When orthopaedic specialists, podiatrists, and physiotherapists assess cascading foot-to-back discomfort, they examine the whole chain—checking standing alignment, walking mechanics, joint range of motion, and tendon strength—rather than staring only at the sorest spot.
+When orthopaedic specialists, podiatrists, and physiotherapists assess cascading foot-to-back discomfort, they examine the whole chain (checking standing alignment, walking mechanics, joint range of motion, and tendon strength) rather than staring only at the sorest spot.
 
-Reassuringly, **non-operative management is almost always the first—and most effective—line of care**, with surgery reserved strictly for severe structural deformity or unremitting pain that fails thorough conservative measures:
+Reassuringly, **non-operative management is almost always the first and most effective line of care**, with surgery reserved strictly for severe structural deformity or unremitting pain that fails thorough conservative measures:
 
 - **Smart footwear modifications:** Choosing stable shoes with generous forefoot width (so bunions aren't squeezed), skip-lacing over sensitive midfoot bumps, or selecting gently curved "rocker-style" soles that help stiff big toes roll forward effortlessly.
 - **Orthotic offloading and arch support:** Steadying inward tendon strain and redistributing pressure away from arthritic toe or midfoot joints so you stop limping.
@@ -92,9 +92,9 @@ Reassuringly, **non-operative management is almost always the first—and most e
 
 ## Protecting Every Link in Your Mobility Chain
 
-When a sore bunion, flattening arch, or stiff instep starts echoing in your knees, hips, or lower back, your body is asking for mechanical relief—not telling you to give up active life. Supporting vulnerable foot joints early with roomy footwear, [podiatrist-designed offloader insoles and bunion supports from PodiMe](https://podime.com.au?bg_ref=bDQ1o6IXhD), and timely clinical advice keeps small foot complaints from becoming whole-body limitations.
+When a sore bunion, flattening arch, or stiff instep starts echoing in your knees, hips, or lower back, your body is asking for mechanical relief rather than telling you to give up active life. Supporting vulnerable foot joints early with roomy footwear, [podiatrist-designed offloader insoles and bunion supports from PodiMe](https://podime.com.au?bg_ref=bDQ1o6IXhD), and timely clinical advice keeps small foot complaints from becoming whole-body limitations.
 
-Curious about the reverse scenario—where spinal arthritis mimics forefoot nerve pain? Read our final guide in the series: [When Foot Pain Actually Comes From Your Spine](/resources/foot-pain-caused-by-your-spine-radiculopathy-vs-neuroma).
+Curious about the reverse scenario, where spinal arthritis mimics forefoot nerve pain? Read our companion guide: [When Foot Pain Actually Comes From Your Spine](/resources/foot-pain-caused-by-your-spine-radiculopathy-vs-neuroma).
 
 ---
 
@@ -114,4 +114,4 @@ Starting with your GP, an experienced podiatrist, or a musculoskeletal physiothe
 
 ---
 
-*Editorial & Affiliate Disclosure: This article is for general educational information only and is not personal medical advice. Always consult your GP, podiatrist, or physiotherapist for diagnosis. Some links in this article (including PodiMe links) are affiliate links—if you choose to purchase through them, Foot Back Pain may earn a small commission at no extra cost to you.*
+*Editorial & Affiliate Disclosure: This article is for general educational information only and is not personal medical advice. Always consult your GP, podiatrist, or physiotherapist for diagnosis. Some links in this article (including PodiMe links) are affiliate links; if you choose to purchase through them, Foot Back Pain may earn a small commission at no extra cost to you.*

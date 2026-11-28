@@ -2,7 +2,7 @@
 post_number: 8
 title: "Can My Back Pain Be From My Feet? How Worn-Out Shoes, Limping, and Staying Active Shape Spinal Health"
 meta_title: "Can My Back Pain Be From My Feet? Shoes, Gait & Active Ageing"
-meta_description: "Wondering 'can my back pain be from my feet?' Learn how worn-out shoes, ball-of-foot pain, and ground reaction forces affect your spine—and how to stay active."
+meta_description: "Wondering 'can my back pain be from my feet?' Learn how worn-out shoes, ball-of-foot pain, and ground reaction forces affect your spine, and how to stay active."
 slug: "can-back-pain-be-from-my-feet-footwear-active-ageing"
 category: "Footwear & Active Ageing"
 author: "Foot Back Pain Editorial Team"
@@ -26,11 +26,11 @@ related_slugs:
 > **Key Takeaways**
 > - **Ground forces travel upward on every step:** Tired, compressed shoes or unsupported arches send extra physical fatigue straight through your legs into your lower back.
 > - **Ball-of-foot soreness triggers quiet limping:** Conditions like metatarsalgia or bruised heels alter your stride and quickly create hip and lumbar muscle imbalances.
-> - **Gentle movement beats bed rest:** Modern back-care guidelines strongly favour staying active—and refreshing your shoes with [podiatrist-designed orthotic innersoles and metatarsal pads](https://podime.com.au?bg_ref=bDQ1o6IXhD) makes daily walking comfortable again.
+> - **Gentle movement beats bed rest:** Modern back-care guidelines strongly favour staying active, and refreshing your shoes with [podiatrist-designed orthotic innersoles and metatarsal pads](https://podime.com.au?bg_ref=bDQ1o6IXhD) makes daily walking comfortable again.
 
-One of the biggest shifts in modern back care over the past twenty years is how doctors and physiotherapists view rest. A generation ago, people with an aching lower back were often told to lie flat for days. Today, clinical evidence is crystal clear: **gentle, regular movement—especially daily walking—is one of the best medicines for a stiff, sore lower back**.
+One of the biggest shifts in modern back care over the past twenty years is how doctors and physiotherapists view rest. A generation ago, people with an aching lower back were often told to lie flat for days. Today, clinical evidence is crystal clear: **gentle, regular movement, especially daily walking, is one of the best medicines for a stiff, sore lower back**.
 
-Yet there is a catch that stops many older adults in their tracks. What happens when the very walk meant to loosen your spine actually makes your lower back ache more—because your shoes are tired, the balls of your feet are tender, or your arches are rolling inward?
+Yet there is a catch that stops many older adults in their tracks. What happens when the very walk meant to loosen your spine actually makes your lower back ache more, because your shoes are tired, the balls of your feet are tender, or your arches are rolling inward?
 
 If you have found yourself asking, **"Can my back pain be from my feet?"**, looking closely at your footwear, ground impact, and walking stride could unlock the comfortable daily movement your spine is craving.
 
@@ -40,7 +40,7 @@ If you have found yourself asking, **"Can my back pain be from my feet?"**, look
 
 Physics has a polite name for how hard the pavement pushes back against you: **ground reaction force**. Every time you plant your foot on a suburban footpath, workshop concrete floor, or shopping-centre aisle, upward force enters your heel, travels through your ankle, shin, and knee, and crosses your hip joint into your lumbar spine.
 
-When your foot structure is well balanced—neither collapsing too far inward with flat arches nor jarring rigidly with high arches—your lower limb absorbs and guides that energy smoothly. When foot mechanics falter or footwear wears flat, those upward forces arrive at your lower back slightly off-angle, thousands of times every single day.
+When your foot structure is well balanced (neither collapsing too far inward with flat arches nor jarring rigidly with high arches), your lower limb absorbs and guides that energy smoothly. When foot mechanics falter or footwear wears flat, those upward forces arrive at your lower back slightly off-angle, thousands of times every single day.
 
 ---
 
@@ -48,7 +48,7 @@ When your foot structure is well balanced—neither collapsing too far inward wi
 
 Many thrifty, sensible Australians keep a favourite pair of walking runners, leather slip-ons, or work and gardening boots for years because the uppers still look clean and the rubber tread underneath hasn't worn bald.
 
-Unfortunately, the real spinal protection inside a shoe lives in the **midsole foam** and **internal heel counter**—and both break down long before the outer leather or mesh looks shabby:
+Unfortunately, the real spinal protection inside a shoe lives in the **midsole foam** and **internal heel counter**, and both break down long before the outer leather or mesh looks shabby:
 
 - **Compressed midsole cushioning:** After nine to twelve months of regular wear, microscopic air cells in foam midsoles flatten permanently, often more heavily under the inner heel or outer edge where you lean most.
 - **Fatigued garden and work boots:** Heavy, worn-out boots used for mowing, workshop projects, or volunteering frequently lose their internal arch shank and liner support, increasing postural fatigue across the lower back within an hour.
@@ -58,7 +58,7 @@ Unfortunately, the real spinal protection inside a shoe lives in the **midsole f
 
 ## How Forefoot and Heel Pain Trick You Into Straining Your Back
 
-Sometimes the problem isn't just shoe wear—it is a tender spot under the foot itself. Alongside heel conditions like plantar fasciitis, older adults very commonly develop **metatarsalgia**: an aching, pebble-like soreness right under the ball of the foot as natural forefoot padding thins with age.
+Sometimes the problem isn't just shoe wear; it is a tender spot under the foot itself. Alongside heel conditions like plantar fasciitis, older adults very commonly develop **metatarsalgia**: an aching, pebble-like soreness right under the ball of the foot as natural forefoot padding thins with age.
 
 When the ball of your foot or your heel hurts, you do not need to consciously decide to limp. Your body automatically:
 - Shifts weight backward onto your heels or sideways onto the outer border of the foot.
@@ -71,10 +71,10 @@ Within a remarkably short time, a local forefoot complaint turns into a nagging 
 
 ## A Holistic Action Plan to Keep Moving Comfortably
 
-Because staying gently active is so valuable for spinal discs, circulation, bone density, and mood, the goal is never to stop walking—it is to make walking feel supported and effortless again.
+Because staying gently active is so valuable for spinal discs, circulation, bone density, and mood, the goal is never to stop walking; it is to make walking feel supported and effortless again.
 
 ### 1. Audit and Refresh Your Everyday Footwear
-Match your footwear to the real demands of your week—whether that is morning neighbourhood walks, lawn bowls, gardening, or long days on hard floors. Replace shoes whose midsoles feel rock-hard or lopsided, and revive sturdy shoes whose factory liners have gone paper-thin.
+Match your footwear to the real demands of your week, whether that is morning neighbourhood walks, lawn bowls, gardening, or long days on hard floors. Replace shoes whose midsoles feel rock-hard or lopsided, and revive sturdy shoes whose factory liners have gone paper-thin.
 
 > ### Breathe New Support Into Your Walking Shoes With PodiMe
 > Even good walking shoes and work boots come from the factory with thin, flat foam liners designed only to cover the stitching. **PodiMe** lets you upgrade the inside of your favourite shoes in seconds with Australian podiatry-designed support.
@@ -100,7 +100,7 @@ You do not have to choose between resting a sore back and enjoying your daily wa
 ## Frequently Asked Questions
 
 ### How can I tell if my walking shoes are worn out inside when they still look neat outside?
-Place the shoes at eye level on a kitchen table and look from behind: if the heels tilt inward or outward, or you see deep horizontal creases compressed into the foam midsole, the internal support has broken down. Also press your thumb into the insole under the heel and ball of the foot—if it feels paper-thin and hard, it is time to upgrade.
+Place the shoes at eye level on a kitchen table and look from behind: if the heels tilt inward or outward, or you see deep horizontal creases compressed into the foam midsole, the internal support has broken down. Also press your thumb into the insole under the heel and ball of the foot; if it feels paper-thin and hard, it is time to upgrade.
 
 ### What is metatarsalgia, and how does it cause back pain?
 **Metatarsalgia** means aching, burning, or bruised tenderness under the ball of the foot (the metatarsal heads), which becomes more common as natural underfoot fat pads thin with age. Because pushing off hurts, people instinctively limp or roll onto the outer foot edge, twisting the hips and straining the lower back.
@@ -113,4 +113,4 @@ Yes. Full-length PodiMe orthotic innersoles fit smoothly into lace-up walkers, j
 
 ---
 
-*Editorial & Affiliate Disclosure: This article is for general educational information only and is not personal medical advice. Always consult your GP, podiatrist, or physiotherapist for diagnosis. Some links in this article (including PodiMe links) are affiliate links—if you choose to purchase through them, Foot Back Pain may earn a small commission at no extra cost to you.*
+*Editorial & Affiliate Disclosure: This article is for general educational information only and is not personal medical advice. Always consult your GP, podiatrist, or physiotherapist for diagnosis. Some links in this article (including PodiMe links) are affiliate links; if you choose to purchase through them, Foot Back Pain may earn a small commission at no extra cost to you.*

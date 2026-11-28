@@ -20,6 +20,18 @@ const stripMarkdown = (text: string) =>
     .replace(/\*\*([^*]+)\*\*/g, '$1')
     .replace(/\*([^*]+)\*/g, '$1');
 
+const publisherOrg = {
+  '@type': 'Organization',
+  name: 'footbackpain',
+  url: `${SITE_URL}/`,
+  logo: {
+    '@type': 'ImageObject',
+    url: `${SITE_URL}/apple-touch-icon.png`,
+    width: 180,
+    height: 180,
+  },
+};
+
 for (const route of allRoutes) {
   const { title, description } = getMeta(route);
   const article = articles.find(a => route === `/resources/${a.slug}`);
@@ -30,24 +42,32 @@ for (const route of allRoutes) {
 
   if (article) {
     const fullHeroUrl = `${SITE_URL}${article.heroImage}`;
+    extraHead += `\n    <meta property="og:image:alt" content="${escape(article.heroAlt)}" />\n    <meta name="twitter:image:alt" content="${escape(article.heroAlt)}" />`;
+    if (article.publishDate) {
+      extraHead += `\n    <meta property="article:published_time" content="${escape(article.publishDate)}" />`;
+    }
 
     const graph: Record<string, unknown>[] = [
       {
         '@type': 'Article',
         headline: article.title,
         description,
-        image: [fullHeroUrl],
+        image: [
+          {
+            '@type': 'ImageObject',
+            url: fullHeroUrl,
+            width: 1280,
+            height: 714,
+            caption: article.heroAlt,
+          },
+        ],
         inLanguage: 'en-AU',
         author: {
           '@type': 'Organization',
           name: article.author || 'footbackpain Editorial Team',
           url: `${SITE_URL}/`,
         },
-        publisher: {
-          '@type': 'Organization',
-          name: 'footbackpain',
-          url: `${SITE_URL}/`,
-        },
+        publisher: publisherOrg,
         ...(article.publishDate ? { datePublished: article.publishDate, dateModified: article.publishDate } : {}),
         ...(article.keywords ? { keywords: article.keywords.join(', ') } : {}),
         mainEntityOfPage: {
@@ -80,6 +100,36 @@ for (const route of allRoutes) {
     }
 
     const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c');
+    extraHead += `\n    <script type="application/ld+json">${jsonLd}</script>`;
+  } else if (route === '/resources') {
+    const resourceHubGraph: Record<string, unknown>[] = [
+      {
+        '@type': 'CollectionPage',
+        name: title,
+        description,
+        url: canonicalUrl,
+        inLanguage: 'en-AU',
+        publisher: publisherOrg,
+        mainEntity: {
+          '@type': 'ItemList',
+          numberOfItems: articles.length,
+          itemListElement: articles.map((a, idx) => ({
+            '@type': 'ListItem',
+            position: idx + 1,
+            name: a.title,
+            url: `${SITE_URL}/resources/${a.slug}/`,
+          })),
+        },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+          { '@type': 'ListItem', position: 2, name: 'The connection', item: canonicalUrl },
+        ],
+      },
+    ];
+    const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': resourceHubGraph }).replace(/</g, '\\u003c');
     extraHead += `\n    <script type="application/ld+json">${jsonLd}</script>`;
   } else {
     const dirRoute = parseDirectoryRoute(route);
@@ -126,6 +176,26 @@ for (const route of allRoutes) {
         const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': clinicGraph }).replace(/</g, '\\u003c');
         extraHead += `\n    <script type="application/ld+json">${jsonLd}</script>`;
       }
+    } else if (dirRoute?.kind === 'index') {
+      const dirIndexGraph = [
+        {
+          '@type': 'CollectionPage',
+          name: title,
+          description,
+          url: canonicalUrl,
+          inLanguage: 'en-AU',
+          publisher: publisherOrg,
+        },
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+            { '@type': 'ListItem', position: 2, name: 'Directory', item: canonicalUrl },
+          ],
+        },
+      ];
+      const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': dirIndexGraph }).replace(/</g, '\\u003c');
+      extraHead += `\n    <script type="application/ld+json">${jsonLd}</script>`;
     } else if (dirRoute?.kind === 'state' || dirRoute?.kind === 'city') {
       const breadcrumbs = [
         { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
@@ -141,6 +211,8 @@ for (const route of allRoutes) {
           name: title,
           description,
           url: canonicalUrl,
+          inLanguage: 'en-AU',
+          publisher: publisherOrg,
         },
         {
           '@type': 'BreadcrumbList',
@@ -164,8 +236,8 @@ for (const route of allRoutes) {
     const fullHeroUrl = `${SITE_URL}${article.heroImage}`;
     html = html
       .replace(/<meta property="og:image" content="[^"]*"\s*\/>/, `<meta property="og:image" content="${escape(fullHeroUrl)}" />`)
-      .replace(/\n?\s*<meta property="og:image:width" content="[^"]*"\s*\/>/, '')
-      .replace(/\n?\s*<meta property="og:image:height" content="[^"]*"\s*\/>/, '')
+      .replace(/<meta property="og:image:width" content="[^"]*"\s*\/>/, '<meta property="og:image:width" content="1280" />')
+      .replace(/<meta property="og:image:height" content="[^"]*"\s*\/>/, '<meta property="og:image:height" content="714" />')
       .replace(/<meta name="twitter:image" content="[^"]*"\s*\/>/, `<meta name="twitter:image" content="${escape(fullHeroUrl)}" />`)
       .replace(/<meta property="og:type" content="website"\s*\/>/, '<meta property="og:type" content="article" />');
     if (article.keywords && article.keywords.length > 0) {

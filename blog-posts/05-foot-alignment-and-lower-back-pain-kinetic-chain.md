@@ -2,7 +2,7 @@
 post_number: 5
 title: "Foot Alignment and Lower Back Pain: Understanding the Domino Effect From Ankle to Spine"
 meta_title: "Foot Alignment & Lower Back Pain: The Kinetic Chain Explained"
-meta_description: "Lower back pain isn't always caused by heavy lifting or bad chairs. See how poor foot alignment triggers a domino effect from ankles to spine—and how to fix it."
+meta_description: "Lower back pain isn't always caused by heavy lifting or bad chairs. See how poor foot alignment triggers a domino effect from ankles to spine, and how to fix it."
 slug: "foot-alignment-and-lower-back-pain-kinetic-chain"
 category: "Posture & Alignment"
 author: "Foot Back Pain Editorial Team"
@@ -46,10 +46,10 @@ Picture six upright dominoes lined up from the floor to your waist. When foot al
 2. **The Shins (Tibia):** Because the ankle hinge is angled, your shin bone rotates inward with every step you take.
 3. **The Knees:** Following the rotating shin, the knee drifts slightly inward toward the midline, changing how your thigh muscles pull on the kneecap.
 4. **The Thighs & Hips (Femur):** Internal rotation continues up the thigh bone into the ball-and-socket hip joint, tightening front hip muscles and putting your glute muscles at a mechanical disadvantage.
-5. **The Pelvis:** Pulled downward at the front—or tipped higher on one side if one arch collapses more than the other—your pelvis loses its level horizon.
+5. **The Pelvis:** Pulled downward at the front, or tipped higher on one side if one arch collapses more than the other, your pelvis loses its level horizon.
 6. **The Lumbar Spine (Lower Back):** Sitting directly atop that tilted pelvis, your lower five vertebrae must curve more sharply or lean sideways so your eyes stay level with the street ahead.
 
-Your lower back never asked for that extra workload; it is simply doing heroic overtime to keep you balanced above misaligned feet. (You can explore an interactive joint-by-joint guide right on our [Foot Back Pain homepage](/directory).)
+Your lower back never asked for that extra workload; it is simply doing heroic overtime to keep you balanced above misaligned feet. (You can explore local allied health clinics right in our [Foot Back Pain directory](/directory).)
 
 ---
 
@@ -62,7 +62,7 @@ Gradual arch flattening is remarkably common past fifty, as decades of weight-be
 High arches look strong at a glance, yet they frequently lack the supple give needed to absorb pavement impact. Rather than twisting the leg inward, rigid arches transmit sharp ground vibration straight up through the knee and hip joints into the lower spine. (Read more in [Are Your Feet Causing Your Back Pain?](/resources/are-your-feet-causing-your-back-pain-shock-absorption))
 
 ### 3. Structural or Functional Leg-Length Differences
-Sometimes one leg measures slightly shorter in bone length—perhaps after a past fracture, hip replacement, or knee surgery. Just as often, both legs are identical in length on a treatment table, yet *behave* differently when standing because one arch flattens far lower than the other. Either way, the pelvis tilts sideways like an uneven table, creating one-sided lower back ache.
+Sometimes one leg measures slightly shorter in bone length, perhaps after a past fracture, hip replacement, or knee surgery. Just as often, both legs are identical in length on a treatment table, yet *behave* differently when standing because one arch flattens far lower than the other. Either way, the pelvis tilts sideways like an uneven table, creating one-sided lower back ache.
 
 ---
 
@@ -79,15 +79,15 @@ You do not need an X-ray to spot early warning signs that foot alignment may be 
 
 ## How Modern Integrated Care Fixes Both Alignment and Strength
 
-Lasting relief rarely comes from choosing *either* foot support *or* back exercise—the magic happens when you pair the two together.
+Lasting relief rarely comes from choosing *either* foot support *or* back exercise; the best results happen when you pair the two together.
 
 ### Step 1: Restore Neutral Foot Alignment Underfoot
 Giving your arches structured, anatomically contoured support stops the first domino from falling. When an orthotic insole cradles the heel and holds the arch at a balanced angle, your shins stop over-rotating and your pelvis sits naturally squarer beneath your spine.
 
 > ### Straighten Out the Domino Effect With PodiMe
-> Supporting your foot alignment does not have to be complicated or prohibitively expensive. **PodiMe** designs Australian podiatry-grade foot support tailored to real everyday shoes—including **Full-Length Orthotic Innersoles** for walkers and joggers, **3/4 Length Orthotics** for casual everyday footwear, and **Gel Arch Pads** for targeted instep comfort.
+> Supporting your foot alignment does not have to be complicated or prohibitively expensive. **PodiMe** designs Australian podiatry-grade foot support tailored to real everyday shoes, including **Full-Length Orthotic Innersoles** for walkers and joggers, **3/4 Length Orthotics** for casual everyday footwear, and **Gel Arch Pads** for targeted instep comfort.
 >
-> Adding [PodiMe alignment-supporting orthotic innersoles](https://podime.com.au?bg_ref=bDQ1o6IXhD) to your daily routine steadies rolling ankles and cushions hard floors—giving your knees, hips, and lower back a calmer, level base on every walk.
+> Adding [PodiMe alignment-supporting orthotic innersoles](https://podime.com.au?bg_ref=bDQ1o6IXhD) to your daily routine steadies rolling ankles and cushions hard floors, giving your knees, hips, and lower back a calmer, level base on every walk.
 >
 > [**Find Your Size in PodiMe's Orthotic Innersole Range →**](https://podime.com.au?bg_ref=bDQ1o6IXhD)
 
@@ -101,7 +101,7 @@ Once your foundation is aligned, gentle strengthening teaches your muscles to ho
 
 ## Small Alignment Shifts, Big Everyday Comfort
 
-When you address posture from the ground up, improvements ripple through your whole day—from standing comfortably while cooking dinner to enjoying longer weekend walks without paying for it the next morning. Start by checking your favourite shoes, slipping [supportive PodiMe orthotic inserts](https://podime.com.au?bg_ref=bDQ1o6IXhD) beneath tired arches, and speaking with a podiatrist or physiotherapist if one-sided hip or back stiffness persists.
+When you address posture from the ground up, improvements ripple through your whole day, from standing comfortably while cooking dinner to enjoying longer weekend walks without paying for it the next morning. Start by checking your favourite shoes, slipping [supportive PodiMe orthotic inserts](https://podime.com.au?bg_ref=bDQ1o6IXhD) beneath tired arches, and speaking with a podiatrist or physiotherapist if one-sided hip or back stiffness persists.
 
 For practical fixes targeting specific foot complaints like stiff big toes and calluses, read our next guide on [how hidden foot problems cause lower back pain](/resources/how-foot-problems-cause-lower-back-pain-solutions).
 
@@ -110,7 +110,7 @@ For practical fixes targeting specific foot complaints like stiff big toes and c
 ## Frequently Asked Questions
 
 ### What does "the kinetic chain" mean in simple terms?
-It means the joints and muscles of your body are linked like segments of a chain. Movement or misalignment at the bottom link—your feet—automatically alters how your ankles, knees, hips, pelvis, and lower spine line up above it.
+It means the joints and muscles of your body are linked like segments of a chain. Movement or misalignment at the bottom link (your feet) automatically alters how your ankles, knees, hips, pelvis, and lower spine line up above it.
 
 ### Can one flat foot cause one-sided lower back pain?
 Yes, very commonly. If one arch drops lower than the other when you stand, that leg functions slightly shorter, tipping your pelvis toward that side and forcing the muscles on the opposite or same side of your lower back to brace unevenly all day.
@@ -119,8 +119,8 @@ Yes, very commonly. If one arch drops lower than the other when you stand, that 
 Never. In fact, older adults often feel some of the clearest day-to-day benefits from supportive footwear and orthotic insoles, because mature joints and spinal discs appreciate reduced mechanical strain and added cushioning immediately.
 
 ### Should I combine orthotic insoles with exercise, or do insoles make foot muscles lazy?
-Well-designed orthotics support alignment during long bouts of standing and walking on unnaturally hard human-made surfaces like concrete and tile, preventing overload. Pairing them with a few minutes of daily foot, calf, and glute exercises gives you both structural protection and active muscle strength—nothing gets "lazy."
+Well-designed orthotics support alignment during long bouts of standing and walking on unnaturally hard human-made surfaces like concrete and tile, preventing overload. Pairing them with a few minutes of daily foot, calf, and glute exercises gives you both structural protection and active muscle strength; nothing gets "lazy."
 
 ---
 
-*Editorial & Affiliate Disclosure: This article is for general educational information only and is not personal medical advice. Always consult your GP, podiatrist, or physiotherapist for diagnosis. Some links in this article (including PodiMe links) are affiliate links—if you choose to purchase through them, Foot Back Pain may earn a small commission at no extra cost to you.*
+*Editorial & Affiliate Disclosure: This article is for general educational information only and is not personal medical advice. Always consult your GP, podiatrist, or physiotherapist for diagnosis. Some links in this article (including PodiMe links) are affiliate links; if you choose to purchase through them, Foot Back Pain may earn a small commission at no extra cost to you.*
