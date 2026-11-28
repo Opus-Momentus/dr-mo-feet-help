@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Podiatrist Finder — footbackpain.com</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="app">
+    <div class="topline">
+      <span>CLARITY FROM THE GROUND UP</span>
+      <a href="https://footbackpain.com/resources?utm_source=chrome_extension&utm_medium=popup&utm_campaign=topline" target="_blank" rel="noopener noreferrer">
+        footbackpain.com
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+    </div>
+
+    <header class="header">
+      <a class="logo" href="https://footbackpain.com/?utm_source=chrome_extension&utm_medium=popup&utm_campaign=header_logo" target="_blank" rel="noopener noreferrer" aria-label="Visit footbackpain.com">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 100 104" fill="none">
+            <path class="mark-leg" d="M27 20C13 35 13 54 22 69C26 75 33 76 36 73C29 70 25 60 25 46C25 34 27 26 29 21C29 19 27 20 27 20Z"/>
+            <path class="mark-leg" d="M53 7C53 15 49 20 42 26C37 31 38 42 39 51C41 61 53 69 69 75C78 79 86 80 91 81C94 82 93 86 89 86C78 86 66 81 52 74C37 66 32 56 32 42C32 30 36 22 44 16C47 13 48 9 49 6C51 4 53 7 53 7Z"/>
+            <path class="mark-accent" d="M42 28C48 26 53 32 52 41C46 40 41 35 42 28Z"/>
+            <path class="mark-sole" d="M16 74C10 83 14 95 28 96C38 97 47 93 58 94C68 95 79 96 88 94C93 93 93 89 89 88C78 88 65 88 52 84C39 81 29 77 21 73C18 71 16 74 16 74Z"/>
+          </svg>
+        </span>
+        <span>footbackpain<span class="logo-tld">.com</span></span>
+      </a>
+      <a class="header-pill" href="https://footbackpain.com/directory?utm_source=chrome_extension&utm_medium=popup&utm_campaign=header_directory" target="_blank" rel="noopener noreferrer">
+        Directory
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </a>
+    </header>
+
+    <main class="main">
+      <section class="search-panel">
+        <div class="eyebrow"><span class="eyebrow-dot"></span>PODIATRIST FINDER</div>
+        <h1>Find your closest <em>podiatrist.</em></h1>
+
+        <form id="search-form" class="search-form" novalidate>
+          <div class="input-wrap">
+            <svg class="input-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <input
+              id="location-input"
+              type="text"
+              placeholder="Suburb, city, or postcode (e.g. Sydney 2000)"
+              autocomplete="postal-code"
+              aria-label="Suburb, city, or postcode"
+            />
+          </div>
+          <button type="submit" id="search-btn" class="btn btn-dark">Find</button>
+        </form>
+
+        <div class="search-controls">
+          <button type="button" id="geo-btn" class="btn-geo">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3"/><path d="M12 19v3"/><path d="M2 12h3"/><path d="M19 12h3"/><circle cx="12" cy="12" r="7" stroke-dasharray="2 2"/></svg>
+            Use my current location
+          </button>
+
+          <div class="filter-tabs" role="tablist" aria-label="Practitioner filter">
+            <button type="button" class="tab active" data-filter="podiatrist" role="tab" aria-selected="true">Podiatrists</button>
+            <button type="button" class="tab" data-filter="all" role="tab" aria-selected="false">All foot &amp; back</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="results-section" aria-live="polite">
+        <div id="status-bar" class="status-bar hidden"></div>
+        <div id="results-list" class="results-list"></div>
+      </section>
+
+      <section class="backlink-strip" aria-label="footbackpain.com resources">
+        <div class="strip-head">
+          <span class="strip-label">EXPLORE FOOTBACKPAIN.COM</span>
+          <a href="https://footbackpain.com/?utm_source=chrome_extension&utm_medium=popup&utm_campaign=explore_home" target="_blank" rel="noopener noreferrer">Visit site</a>
+        </div>
+        <div class="strip-links">
+          <a class="strip-card" href="https://footbackpain.com/resources?utm_source=chrome_extension&utm_medium=popup&utm_campaign=resources" target="_blank" rel="noopener noreferrer">
+            <strong>Foot &amp; back pain guide</strong>
+            <span>How gait and footwear affect your spine</span>
+          </a>
+          <a class="strip-card" href="https://footbackpain.com/directory?utm_source=chrome_extension&utm_medium=popup&utm_campaign=directory" target="_blank" rel="noopener noreferrer">
+            <strong>Practitioner directory</strong>
+            <span>Browse featured clinics &amp; list a practice</span>
+          </a>
+          <a class="strip-card" href="https://footbackpain.com/products?utm_source=chrome_extension&utm_medium=popup&utm_campaign=products" target="_blank" rel="noopener noreferrer">
+            <strong>Thoughtful picks</strong>
+            <span>Insoles, footwear &amp; movement tools</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-row">
+        <a class="footer-brand" href="https://footbackpain.com/?utm_source=chrome_extension&utm_medium=popup&utm_campaign=footer" target="_blank" rel="noopener noreferrer">
+          Powered by <strong>footbackpain.com</strong>
+        </a>
+        <a href="https://footbackpain.com/directory#list-your-practice?utm_source=chrome_extension&utm_medium=popup&utm_campaign=footer_list" target="_blank" rel="noopener noreferrer">List your practice</a>
+      </div>
+      <p class="footer-note">Educational tool only, not medical advice. Verify practitioner registration (e.g. Ahpra in Australia) and fees directly with the clinic.</p>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,9 +1,13 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, Activity, Check, ChevronDown, Compass, ExternalLink, Footprints, Heart, MapPin, Menu, Phone, Search, ShieldCheck, Sparkles, X } from 'lucide-react';
+import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, Activity, BadgeCheck, Calendar, Check, ChevronDown, Compass, ExternalLink, Footprints, Heart, MapPin, Menu, Phone, Search, ShieldCheck, Sparkles, X } from 'lucide-react';
 import { articles, type SectionBlock } from './data/articles';
 import { providers, type Provider } from './data/providers';
+import { localCityRoutes, localStateRoutes, parseDirectoryRoute } from './data/directoryRoutes';
 import { products } from './data/products';
 import { DirectoryEnquirySection } from './components/DirectoryEnquirySection';
+import { ProviderEnquiryForm } from './components/ProviderEnquiryForm';
+import { MovementMap } from './components/MovementQuiz';
+import { trackEvent } from './utils/analytics';
 
 const HERO = '/images/hero-walking.webp';
 const GAIT = '/images/education-gait.webp';
@@ -13,17 +17,48 @@ const PODIME_AFFILIATE_URL = 'https://podime.com.au?bg_ref=bDQ1o6IXhD';
 const externalProps = { target: '_blank', rel: 'noopener noreferrer' } as const;
 const affiliateProps = { target: '_blank', rel: 'sponsored noopener noreferrer' } as const;
 
-export const allRoutes = ['/', '/resources', ...articles.map(a => `/resources/${a.slug}`), '/directory', ...providers.map(p => `/directory/${p.slug}`), '/products', '/about'];
+export const allRoutes = [
+  '/',
+  '/resources',
+  ...articles.map(a => `/resources/${a.slug}`),
+  '/directory',
+  ...localStateRoutes.map(s => s.path),
+  ...localCityRoutes.map(c => c.path),
+  ...providers.map(p => `/directory/${p.slug}`),
+  '/products',
+  '/about',
+];
 
 export function getMeta(path: string) {
-  const article = articles.find(a => path === `/resources/${a.slug}`);
-  const provider = providers.find(p => path === `/directory/${p.slug}`);
+  const clean = path.length > 1 ? path.replace(/\/$/, '') : path;
+  const article = articles.find(a => clean === `/resources/${a.slug}`);
+  const dirRoute = parseDirectoryRoute(clean);
   if (article) return { title: article.metaTitle || `${article.title} | footbackpain`, description: article.metaDescription || article.summary };
-  if (provider) return { title: `${provider.name} | footbackpain Directory`, description: `${provider.type} practice in ${provider.city}, ${provider.state}. Find contact details, location, and services.` };
-  if (path === '/resources') return { title: 'Foot & Back Pain Resources | footbackpain', description: 'Understand foot mechanics, back pain, orthotics and your options for care with clear, evidence-informed resources.' };
-  if (path === '/directory') return { title: 'Find a Podiatrist or Chiropractor | footbackpain', description: 'Explore podiatry and chiropractic practices by location and type, and find guidance on choosing a practitioner.' };
-  if (path === '/products') return { title: 'Thoughtful Foot Comfort Products | footbackpain', description: 'Explore footwear, insoles and movement tools with practical guidance and transparent links.' };
-  if (path === '/about') return { title: 'About & Editorial Standards | footbackpain', description: 'Learn about footbackpain, our approach to health information, privacy, terms and disclosures.' };
+  if (dirRoute?.kind === 'state') {
+    return {
+      title: `Podiatrists & Chiropractors in ${dirRoute.stateName} (${dirRoute.stateCode}) | footbackpain`,
+      description: `Browse podiatry and chiropractic practices across ${dirRoute.stateName}. Compare locations, services, and request an appointment.`,
+    };
+  }
+  if (dirRoute?.kind === 'city') {
+    return {
+      title: `Podiatrists & Chiropractors in ${dirRoute.cityName}, ${dirRoute.stateCode} | footbackpain`,
+      description: `Find podiatrists and chiropractors in ${dirRoute.cityName}, ${dirRoute.stateCode} for foot, gait, and lower back care.`,
+    };
+  }
+  if (dirRoute?.kind === 'provider') {
+    const provider = providers.find(p => p.slug === dirRoute.slug);
+    if (provider) {
+      return {
+        title: `${provider.name} | footbackpain Directory`,
+        description: `${provider.type} practice in ${[provider.city, provider.state].filter(Boolean).join(', ') || 'Australia'}. Find contact details, location, and services.`,
+      };
+    }
+  }
+  if (clean === '/resources') return { title: 'Foot & Back Pain Resources | footbackpain', description: 'Understand foot mechanics, back pain, orthotics and your options for care with clear, evidence-informed resources.' };
+  if (clean === '/directory') return { title: 'Find a Podiatrist or Chiropractor | footbackpain', description: 'Explore podiatry and chiropractic practices across Australia by state, city, and discipline.' };
+  if (clean === '/products') return { title: 'Thoughtful Foot Comfort Products | footbackpain', description: 'Explore footwear, insoles and movement tools with practical guidance and transparent links.' };
+  if (clean === '/about') return { title: 'About & Editorial Standards | footbackpain', description: 'Learn about footbackpain, our clinical editorial framework, privacy, terms and disclosures.' };
   return { title: 'footbackpain | Foot health, back pain & better movement', description: 'Explore the possible connection between your feet and back, find practical resources, and discover podiatrists and chiropractors near you.' };
 }
 
@@ -59,7 +94,13 @@ function renderRichText(text: string): React.ReactNode {
 
     if (isAffiliate) {
       nodes.push(
-        <a key={`lnk-${linkIdx}`} href={url} {...affiliateProps} className="inline-affiliate-link">
+        <a
+          key={`lnk-${linkIdx}`}
+          href={url}
+          {...affiliateProps}
+          className="inline-affiliate-link"
+          onClick={() => trackEvent('affiliate_click', { url, label, placement: 'inline_article' })}
+        >
           {renderFormattedSpan(label, `lbl-${linkIdx}`)}
         </a>
       );
@@ -119,7 +160,12 @@ function renderSectionBlock(block: SectionBlock, idx: number): React.ReactNode {
           <span className="card-kicker">PODIATRY-DESIGNED SUPPORT · AFFILIATE PARTNER</span>
           <h3>{block.heading}</h3>
           {block.paragraphs.map((cp, i) => <p key={i}>{renderRichText(cp)}</p>)}
-          <a className="btn btn-dark" href={block.buttonUrl} {...affiliateProps}>
+          <a
+            className="btn btn-dark"
+            href={block.buttonUrl}
+            {...affiliateProps}
+            onClick={() => trackEvent('affiliate_click', { url: block.buttonUrl, label: block.buttonLabel, placement: 'article_cta' })}
+          >
             {block.buttonLabel} <ArrowUpRight size={16}/>
           </a>
         </aside>
@@ -165,17 +211,6 @@ function SearchForm({ initialLocation = '', initialType = 'All practitioners', o
   return <form className="search-form" onSubmit={submit}><label className="search-location"><MapPin size={19}/><span className="sr-only">City, suburb or postcode</span><input placeholder="City, suburb or postcode" value={location} onChange={e => setLocation(e.target.value)} /></label><label className="search-type"><span className="sr-only">Practitioner type</span><select value={type} onChange={e => setType(e.target.value)}><option>All practitioners</option><option>Podiatrist</option><option>Chiropractor</option></select><ChevronDown size={16}/></label><button className="btn btn-dark" type="submit">Search <Search size={17}/></button></form>;
 }
 
-const movementAreas = [
-  { name: 'Feet', text: 'Your feet meet the ground and adapt as you move. Foot comfort, footwear and individual foot function may be useful things to discuss with a professional.' },
-  { name: 'Ankles', text: 'The ankles help your feet move through each step. If ankle pain or limited movement is affecting you, a clinician can assess what is relevant.' },
-  { name: 'Knees', text: 'Your knees move in coordination with the rest of your legs. A change in how you walk can have many explanations, including pain or a change in activity.' },
-  { name: 'Hips', text: 'The hips help support and control movement. Strength, mobility, comfort and your daily activities can all be part of a broader assessment.' },
-  { name: 'Lower back', text: 'Back pain is common and can have many contributors. A qualified professional can help you understand your symptoms and discuss suitable next steps.' },
-];
-function MovementMap() {
-  const [selected, setSelected] = useState(0);
-  return <div className="movement-map"><div className="movement-map-intro"><span className="card-kicker">THE MOVEMENT MAP</span><h3>Connected, from the ground up.</h3><p>Explore the areas involved in everyday movement. This is a starting point, not a diagnosis.</p></div><div className="movement-map-content"><div className="movement-tabs" aria-label="Explore areas of the body">{movementAreas.map((area, i) => <button type="button" aria-pressed={selected === i} className={selected === i ? 'active' : ''} onClick={() => setSelected(i)} key={area.name}>{area.name}</button>)}</div><div className="movement-explainer"><span>0{selected + 1}</span><div><strong>{movementAreas[selected].name}</strong><p>{movementAreas[selected].text}</p></div><ArrowUpRight size={17}/></div></div></div>;
-}
 function SectionLabel({children, number}: {children: React.ReactNode; number?: string}) { return <div className="section-label">{number && <span>{number}</span>}<i/> {children}</div>; }
 function ArticleCard({ article, index = 0, image = false }: {article: typeof articles[number]; index?: number; image?: boolean}) {
   const imgIdx = index % 3;
@@ -198,8 +233,69 @@ function formatProviderLocation(p: Provider) {
   const region = [p.state, p.postcode].filter(Boolean).join(' ');
   return [p.city, region].filter(Boolean).join(', ');
 }
-function ProviderCard({provider}: {provider: Provider}) { return <article className="provider-card"><div className="provider-card-top"><span className="provider-icon"><MapPin size={19}/></span><span className="provider-tag">{provider.type}</span></div><h3>{provider.name}</h3><p className="provider-location"><MapPin size={15}/> {formatProviderLocation(provider)}</p><p className="provider-description">{provider.description}</p><div className="provider-services">{provider.services.slice(0,2).map(s => <span key={s}>{s}</span>)}</div><div className="provider-bottom"><a href={`/directory/${provider.slug}`}>View practice <ArrowRight size={16}/></a>{provider.website && <a href={provider.website} {...externalProps} aria-label={`Visit ${provider.name} website`}><ExternalLink size={16}/></a>}</div></article>; }
-function ProductCard({product, index}: {product: typeof products[number]; index: number}) { const Icon = [Footprints, Activity, Sparkles][index % 3]; const linkAttrs = product.sponsored ? affiliateProps : externalProps; return <article className="product-card"><div className={`product-art product-art-${index % 3}`}><Icon size={58} strokeWidth={1.05}/><span className="product-art-label">{product.sponsored ? <>PODIATRIST-DESIGNED<br/>PARTNER PICK</> : <>A LITTLE SUPPORT<br/>FOR EVERY DAY</>}</span></div><div className="product-copy"><div className="card-meta">{product.category}{product.sponsored ? ' · AFFILIATE' : ''}</div><h3>{product.name}</h3><p>{product.description}</p><a className="read-link" href={product.url} {...linkAttrs}>{product.sponsored ? `Shop ${product.merchant}` : `Visit ${product.merchant}`} <ArrowUpRight size={16}/></a></div></article>; }
+function ProviderCard({provider}: {provider: Provider}) {
+  return (
+    <article className={`provider-card ${provider.featured ? 'provider-card-featured' : ''}`}>
+      <div className="provider-card-top">
+        <span className="provider-icon"><MapPin size={19}/></span>
+        <div className="provider-tags-group">
+          {provider.featured && <span className="provider-tag provider-tag-featured"><Sparkles size={11}/> Featured</span>}
+          {provider.verified && <span className="provider-tag provider-tag-verified"><BadgeCheck size={11}/> Verified</span>}
+          <span className="provider-tag">{provider.type}</span>
+        </div>
+      </div>
+      <h3>{provider.name}</h3>
+      <p className="provider-location"><MapPin size={15}/> {formatProviderLocation(provider) || provider.address}</p>
+      <p className="provider-description">{provider.description}</p>
+      <div className="provider-services">{provider.services.slice(0,2).map(s => <span key={s}>{s}</span>)}</div>
+      <div className="provider-bottom">
+        <a href={`/directory/${provider.slug}`}>View practice <ArrowRight size={16}/></a>
+        {provider.website && (
+          <a
+            href={provider.website}
+            {...externalProps}
+            aria-label={`Visit ${provider.name} website`}
+            onClick={() => trackEvent('provider_website_click', { provider_slug: provider.slug, provider_name: provider.name, placement: 'directory_card' })}
+          >
+            <ExternalLink size={16}/>
+          </a>
+        )}
+      </div>
+    </article>
+  );
+}
+function ProductCard({product, index}: {product: typeof products[number]; index: number}) {
+  const Icon = [Footprints, Activity, Sparkles][index % 3];
+  const linkAttrs = product.sponsored ? affiliateProps : externalProps;
+  return (
+    <article className="product-card">
+      <div className={`product-art product-art-${index % 3}`}>
+        <Icon size={58} strokeWidth={1.05}/>
+        <span className="product-art-label">{product.sponsored ? <>PODIATRIST-DESIGNED<br/>PARTNER PICK</> : <>A LITTLE SUPPORT<br/>FOR EVERY DAY</>}</span>
+      </div>
+      <div className="product-copy">
+        <div className="card-meta">{product.category}{product.sponsored ? ' · AFFILIATE' : ''}</div>
+        <h3>{product.name}</h3>
+        <p>{product.description}</p>
+        <a
+          className="read-link"
+          href={product.url}
+          {...linkAttrs}
+          onClick={() =>
+            trackEvent(product.sponsored ? 'affiliate_click' : 'outbound_product_click', {
+              product_name: product.name,
+              merchant: product.merchant,
+              url: product.url,
+              placement: 'product_card',
+            })
+          }
+        >
+          {product.sponsored ? `Shop ${product.merchant}` : `Visit ${product.merchant}`} <ArrowUpRight size={16}/>
+        </a>
+      </div>
+    </article>
+  );
+}
 
 function Home() { return <>
   <section className="hero"><div className="wrap hero-grid"><div className="hero-copy"><div className="eyebrow"><span className="eyebrow-dot"/> A FRESH PERSPECTIVE ON PAIN</div><h1>Feel better,<br/><em>from the ground up.</em></h1><p className="hero-description">Your feet and your back may be more connected than you think. Let's make sense of how you move, and find a little more ease along the way.</p><div className="hero-actions"><a className="btn btn-dark" href="/resources">Explore the connection <ArrowUpRight size={17}/></a><a className="btn btn-outline" href="/directory">Find a practitioner <ArrowRight size={17}/></a></div><div className="hero-small"><span className="small-icon"><Heart size={15}/></span><span>Thoughtful information for real life.</span></div></div><div className="hero-visual"><div className="hero-image-frame"><img src={HERO} alt="A person walking along a sunlit coastal path"/></div><div className="floating-note"><span className="floating-icon"><Activity size={22}/></span><div><span>EVERY STEP COUNTS</span><strong>Small steps. A better understanding.</strong></div></div><div className="hero-image-index">01 / 03 <span/> MOVE WITH MORE EASE</div></div></div><div className="wrap hero-bottom"><div><span className="mini-sun">✳</span> YOUR BODY IS CONNECTED</div><p>A little knowledge can be a good first step.</p><a href="#connection" aria-label="Scroll to the foot and back connection"><ArrowDown size={17}/></a></div></section>
@@ -295,7 +391,12 @@ function ResourcePage({slug}: {slug: string}) {
               <span className="card-kicker">AUSTRALIAN PODIATRY SUPPORT</span>
               <h3>Support tired arches &amp; heels at home</h3>
               <p>Explore PodiMe&apos;s podiatrist-designed orthotic innersoles, offloaders, Poron heel pads and bunion care—delivered Australia-wide.</p>
-              <a className="aside-podime-btn" href={PODIME_AFFILIATE_URL} {...affiliateProps}>
+              <a
+                className="aside-podime-btn"
+                href={PODIME_AFFILIATE_URL}
+                {...affiliateProps}
+                onClick={() => trackEvent('affiliate_click', { url: PODIME_AFFILIATE_URL, label: 'Shop PodiMe range', placement: 'article_aside' })}
+              >
                 Shop PodiMe range <ArrowUpRight size={15}/>
               </a>
             </div>
@@ -331,30 +432,268 @@ function ResourcePage({slug}: {slug: string}) {
   );
 }
 
-function Directory() {
-  const [location, setLocation] = useState('');
+function Directory({
+  initialStateCode = '',
+  initialStateName = '',
+  initialCityName = '',
+}: {
+  initialStateCode?: string;
+  initialStateName?: string;
+  initialCityName?: string;
+}) {
+  const [location, setLocation] = useState(initialCityName || '');
   const [type, setType] = useState('All practitioners');
   const [formKey, setFormKey] = useState(0);
   const [visibleCount, setVisibleCount] = useState(48);
-  useEffect(() => { const query = new URLSearchParams(window.location.search); setLocation(query.get('location') || ''); const requestedType = query.get('type'); setType(requestedType === 'Podiatrist' || requestedType === 'Chiropractor' ? requestedType : 'All practitioners'); setFormKey(1); }, []);
-  const filtered = useMemo(() => providers.filter(p => { const q = location.trim().toLowerCase(); const searchable = `${p.name} ${p.city} ${p.state} ${p.postcode} ${p.address}`.toLowerCase(); return (!q || searchable.includes(q)) && (type === 'All practitioners' || p.type === type); }), [location, type]);
+
+  useEffect(() => {
+    const query = new URLSearchParams(window.location.search);
+    const qLoc = query.get('location');
+    if (qLoc !== null) setLocation(qLoc);
+    const requestedType = query.get('type');
+    setType(requestedType === 'Podiatrist' || requestedType === 'Chiropractor' ? requestedType : 'All practitioners');
+    setFormKey(1);
+  }, []);
+
+  const filtered = useMemo(() => {
+    const q = location.trim().toLowerCase();
+    return providers
+      .filter(p => {
+        if (initialStateCode && p.state !== initialStateCode) return false;
+        const searchable = `${p.name} ${p.city} ${p.state} ${p.postcode} ${p.address}`.toLowerCase();
+        return (!q || searchable.includes(q)) && (type === 'All practitioners' || p.type === type);
+      })
+      .sort((a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured)));
+  }, [location, type, initialStateCode]);
+
   const visible = filtered.slice(0, visibleCount);
-  const mapsQuery = `${type === 'All practitioners' ? 'podiatrists and chiropractors' : type} ${location || 'near me'}`;
-  return <main id="main-content"><div className="page-hero directory-hero"><div className="wrap"><div className="breadcrumb"><a href="/">HOME</a> / FIND CARE</div><SectionLabel>FIND YOUR NEXT STEP</SectionLabel><h1>Good care starts <em>with a conversation.</em></h1><p>Explore Australian podiatry and chiropractic practices, then find the person who feels right for you.</p><SearchForm key={formKey} initialLocation={location} initialType={type} onSearch={(l,t) => { setLocation(l); setType(t); setVisibleCount(48); }}/></div></div><section className="section directory-results"><div className="wrap"><div className="results-heading"><div><SectionLabel>EXPLORE PRACTICES</SectionLabel><h2>Find care <em>near you.</em></h2><p>Listings cover Australian practices from public directories and practice websites. Details can change, so please confirm directly.</p></div><span className="results-count" role="status" aria-live="polite">{filtered.length} {filtered.length === 1 ? 'PRACTICE' : 'PRACTICES'}</span></div>{filtered.length ? <><div className="provider-grid">{visible.map(p => <ProviderCard provider={p} key={p.slug}/>)}</div>{filtered.length > visibleCount && <div style={{display:'flex',justifyContent:'center',marginTop:'2rem'}}><button type="button" className="btn btn-outline" onClick={() => setVisibleCount(c => c + 48)}>Show more practices ({filtered.length - visibleCount} remaining)</button></div>}</> : <div className="empty-state"><MapPin size={28}/><h3>No listings in this selection</h3><p>Try another location or practitioner type. You can also search a map for more practices.</p></div>}<div className="more-options"><div><h3>Looking somewhere else?</h3><p>Our directory is a starting point, not a complete list. Search a map for more practitioners in your area.</p></div><a className="btn btn-outline" href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapsQuery)}`} {...externalProps}>Search Google Maps <ArrowUpRight size={16}/></a></div><div className="directory-notice"><ShieldCheck size={20}/><p>Listings are based on public practice information, not an endorsement or a verification of individual registration. In Australia, check your practitioner's registration on the <a href="https://www.ahpra.gov.au/Registration/Registers-of-Practitioners" {...externalProps}>Ahpra register</a>, and confirm services and fees with the practice.</p></div></div></section><DirectoryEnquirySection/></main>;
+  const stateCities = useMemo(
+    () => (initialStateCode ? localCityRoutes.filter(c => c.stateCode === initialStateCode).slice(0, 12) : []),
+    [initialStateCode]
+  );
+  const locationContext = initialCityName
+    ? `${initialCityName}, ${initialStateCode}`
+    : initialStateName || 'Australia';
+  const mapsQuery = `${type === 'All practitioners' ? 'podiatrists and chiropractors' : type} ${location || locationContext}`;
+
+  return (
+    <main id="main-content">
+      <div className="page-hero directory-hero">
+        <div className="wrap">
+          <div className="breadcrumb">
+            <a href="/">HOME</a> / <a href="/directory">FIND CARE</a>
+            {initialStateName && (
+              <>
+                {' '} / <a href={`/directory/${initialStateCode.toLowerCase()}`}>{initialStateCode}</a>
+              </>
+            )}
+            {initialCityName && <> / {initialCityName.toUpperCase()}</>}
+          </div>
+          <SectionLabel>FIND YOUR NEXT STEP</SectionLabel>
+          <h1>
+            {initialCityName ? (
+              <>Podiatrists &amp; Chiropractors in <em>{initialCityName}.</em></>
+            ) : initialStateName ? (
+              <>Find care in <em>{initialStateName}.</em></>
+            ) : (
+              <>Good care starts <em>with a conversation.</em></>
+            )}
+          </h1>
+          <p>
+            Explore Australian podiatry and chiropractic practices{initialStateName ? ` in ${locationContext}` : ''}, then find the person who feels right for you.
+          </p>
+          <SearchForm
+            key={formKey}
+            initialLocation={location}
+            initialType={type}
+            onSearch={(l, t) => {
+              setLocation(l);
+              setType(t);
+              setVisibleCount(48);
+            }}
+          />
+          <nav className="directory-state-pills" aria-label="Browse practices by Australian state">
+            <a href="/directory" className={!initialStateCode ? 'active' : ''}>All Australia</a>
+            {localStateRoutes.map(st => (
+              <a
+                key={st.code}
+                href={st.path}
+                className={initialStateCode === st.code ? 'active' : ''}
+              >
+                {st.code} ({st.count})
+              </a>
+            ))}
+          </nav>
+          {stateCities.length > 0 && (
+            <nav className="directory-city-links" aria-label={`Popular locations in ${initialStateCode}`}>
+              <span>Popular areas in {initialStateCode}:</span>
+              {stateCities.map(c => (
+                <a
+                  key={c.path}
+                  href={c.path}
+                  className={initialCityName === c.cityName ? 'active' : ''}
+                >
+                  {c.cityName} ({c.count})
+                </a>
+              ))}
+            </nav>
+          )}
+        </div>
+      </div>
+
+      <section className="section directory-results">
+        <div className="wrap">
+          <div className="results-heading">
+            <div>
+              <SectionLabel>EXPLORE PRACTICES</SectionLabel>
+              <h2>Find care <em>near you.</em></h2>
+              <p>Listings cover Australian practices from public directories and practice websites. Details can change, so please confirm directly.</p>
+            </div>
+            <span className="results-count" role="status" aria-live="polite">
+              {filtered.length} {filtered.length === 1 ? 'PRACTICE' : 'PRACTICES'}
+            </span>
+          </div>
+
+          {filtered.length ? (
+            <>
+              <div className="provider-grid">
+                {visible.map(p => <ProviderCard provider={p} key={p.slug}/>)}
+              </div>
+              {filtered.length > visibleCount && (
+                <div style={{display:'flex',justifyContent:'center',marginTop:'2rem'}}>
+                  <button type="button" className="btn btn-outline" onClick={() => setVisibleCount(c => c + 48)}>
+                    Show more practices ({filtered.length - visibleCount} remaining)
+                  </button>
+                </div>
+              )}
+            </>
+          ) : (
+            <div className="empty-state">
+              <MapPin size={28}/>
+              <h3>No listings in this selection</h3>
+              <p>Try another location or practitioner type. You can also search a map for more practices.</p>
+            </div>
+          )}
+
+          <div className="more-options">
+            <div>
+              <h3>Looking somewhere else?</h3>
+              <p>Our directory is a starting point, not a complete list. Search a map for more practitioners in your area.</p>
+            </div>
+            <a className="btn btn-outline" href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapsQuery)}`} {...externalProps}>
+              Search Google Maps <ArrowUpRight size={16}/>
+            </a>
+          </div>
+
+          <div className="directory-notice">
+            <ShieldCheck size={20}/>
+            <p>Listings are based on public practice information, not an endorsement or a verification of individual registration. In Australia, check your practitioner's registration on the <a href="https://www.ahpra.gov.au/Registration/Registers-of-Practitioners" {...externalProps}>Ahpra register</a>, and confirm services and fees with the practice.</p>
+          </div>
+        </div>
+      </section>
+      <DirectoryEnquirySection/>
+    </main>
+  );
 }
-function ProviderPage({slug}: {slug: string}) { const p = providers.find(item => item.slug === slug); if (!p) return <NotFound/>; return <main id="main-content"><div className="page-hero profile-hero"><div className="wrap"><a className="back-link" href="/directory"><ArrowLeft size={15}/> Back to directory</a><span className="provider-tag">{p.type}</span><h1>{p.name}</h1><p><MapPin size={18}/> {formatProviderLocation(p)}</p></div></div><div className="wrap profile-layout"><div><SectionLabel>ABOUT THIS PRACTICE</SectionLabel><h2>Care, closer to you.</h2><p className="profile-description">{p.description}</p><h3>Services listed by the practice</h3><div className="provider-services profile-services">{p.services.map(s => <span key={s}>{s}</span>)}</div><div className="profile-disclaimer"><ShieldCheck size={20}/><p>Practice information comes from its public website and may change. This listing is not an endorsement or verification of individual registration. Please confirm details, fees and suitability directly. In Australia, check registration with <a href="https://www.ahpra.gov.au/Registration/Registers-of-Practitioners" {...externalProps}>Ahpra</a>. Is this your practice? <a href="/directory#claim-listing">Claim your listing</a> to update your description, phone number, pictures, or website.</p></div></div><aside className="contact-card"><span className="card-kicker">PRACTICE DETAILS</span><h3>Get in touch</h3><div><MapPin size={18}/><span>{p.address}</span></div>{p.phone && <div><Phone size={18}/><a href={`tel:${p.phoneHref}`}>{p.phone}</a></div>}{p.website && <a className="btn btn-dark" href={p.website} {...externalProps}>Visit practice website <ArrowUpRight size={16}/></a>}<a className="directions-link" href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.address)}`} {...externalProps}>Get directions <ArrowUpRight size={15}/></a></aside></div></main>; }
+
+function ProviderPage({slug}: {slug: string}) {
+  const p = providers.find(item => item.slug === slug);
+  if (!p) return <NotFound/>;
+  const statePath = p.state ? `/directory/${p.state.toLowerCase()}` : '/directory';
+  return (
+    <main id="main-content">
+      <div className="page-hero profile-hero">
+        <div className="wrap">
+          <a className="back-link" href={statePath}><ArrowLeft size={15}/> Back to {p.state ? `${p.state} directory` : 'directory'}</a>
+          <div className="provider-tags-group">
+            {p.featured && <span className="provider-tag provider-tag-featured"><Sparkles size={11}/> Featured Practice</span>}
+            {p.verified && <span className="provider-tag provider-tag-verified"><BadgeCheck size={11}/> Verified Listing</span>}
+            <span className="provider-tag">{p.type}</span>
+          </div>
+          <h1>{p.name}</h1>
+          <p><MapPin size={18}/> {formatProviderLocation(p) || p.address}</p>
+        </div>
+      </div>
+
+      <div className="wrap profile-layout">
+        <div>
+          <SectionLabel>ABOUT THIS PRACTICE</SectionLabel>
+          <h2>Care, closer to you.</h2>
+          <p className="profile-description">{p.description}</p>
+          <h3>Services listed by the practice</h3>
+          <div className="provider-services profile-services">
+            {p.services.map(s => <span key={s}>{s}</span>)}
+          </div>
+          <div className="profile-disclaimer">
+            <ShieldCheck size={20}/>
+            <p>Practice information comes from its public website and may change. This listing is not an endorsement or verification of individual registration. Please confirm details, fees and suitability directly. In Australia, check registration with <a href="https://www.ahpra.gov.au/Registration/Registers-of-Practitioners" {...externalProps}>Ahpra</a>. Is this your practice? <a href="/directory#claim-listing">Claim your listing</a> to update your description, phone number, pictures, or website.</p>
+          </div>
+          <ProviderEnquiryForm provider={p}/>
+        </div>
+
+        <aside className="contact-card">
+          <span className="card-kicker">PRACTICE DETAILS</span>
+          <h3>Get in touch</h3>
+          <div><MapPin size={18}/><span>{p.address}</span></div>
+          {p.phone && (
+            <div>
+              <Phone size={18}/>
+              <a
+                href={`tel:${p.phoneHref}`}
+                onClick={() => trackEvent('provider_phone_click', { provider_slug: p.slug, provider_name: p.name })}
+              >
+                {p.phone}
+              </a>
+            </div>
+          )}
+          {p.bookingUrl && (
+            <a
+              className="btn btn-dark"
+              href={p.bookingUrl}
+              {...externalProps}
+              onClick={() => trackEvent('provider_booking_click', { provider_slug: p.slug, provider_name: p.name })}
+            >
+              Book online <Calendar size={16}/>
+            </a>
+          )}
+          {p.website && (
+            <a
+              className={`btn ${p.bookingUrl ? 'btn-outline' : 'btn-dark'}`}
+              href={p.website}
+              {...externalProps}
+              onClick={() => trackEvent('provider_website_click', { provider_slug: p.slug, provider_name: p.name, placement: 'profile_page' })}
+            >
+              Visit practice website <ArrowUpRight size={16}/>
+            </a>
+          )}
+          <a
+            className="directions-link"
+            href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.address)}`}
+            {...externalProps}
+            onClick={() => trackEvent('provider_directions_click', { provider_slug: p.slug, provider_name: p.name })}
+          >
+            Get directions <ArrowUpRight size={15}/>
+          </a>
+        </aside>
+      </div>
+    </main>
+  );
+}
 function Products() { return <main id="main-content"><div className="page-hero product-hero"><div className="wrap"><div className="breadcrumb"><a href="/">HOME</a> / THOUGHTFUL PICKS</div><SectionLabel>THE EVERYDAY EDIT</SectionLabel><h1>Little things for <em>the way you move.</em></h1><p>Explore a few practical starting points for everyday foot comfort. The best choice is always the one that fits your needs.</p></div></div><section className="section"><div className="wrap"><div className="product-intro"><div><SectionLabel>CHOOSE WHAT WORKS FOR YOU</SectionLabel><h2>Support, <em>on your terms.</em></h2></div><p>These are product examples, not a promise of pain relief. If you're unsure what might suit you, ask a qualified professional.</p></div><div className="disclosure disclosure-box"><strong>Our link disclosure</strong><br/>Items marked Affiliate (including PodiMe Foot Care) use affiliate links—we may earn a small commission at no extra cost to you if you purchase. Other links go directly to merchants without commission.</div><div className="product-grid">{products.map((p,i) => <ProductCard product={p} index={i} key={p.name}/>)}</div><SafetyNotice/></div></section></main>; }
-function About() { return <main id="main-content"><div className="page-hero"><div className="wrap"><div className="breadcrumb"><a href="/">HOME</a> / ABOUT</div><SectionLabel>OUR APPROACH</SectionLabel><h1>Better questions.<br/><em>More confident steps.</em></h1><p>footbackpain is a starting point for understanding the possible connections between foot health, movement and back pain.</p></div></div><div className="wrap about-layout"><nav aria-label="About this site"><a href="#editorial">Editorial principles</a><a href="#disclosure">Product disclosure</a><a href="#privacy">Privacy</a><a href="#terms">Terms of use</a></nav><div className="prose"><section id="editorial"><SectionLabel>OUR PROMISE</SectionLabel><h2>Information with care.</h2><p>We believe health information should feel clear, balanced and useful. We use reputable published sources and link to them so you can read further. We distinguish associations from proven causes and don't make promises of a cure.</p><p>Back pain is complex, and your circumstances are individual. Our articles are educational and are not a substitute for advice from your own qualified healthcare professional. We do not claim that content has been individually medically reviewed.</p></section><section id="disclosure"><h2>Product & directory transparency.</h2><p>Where articles or product picks include affiliate links (such as PodiMe Foot Care), we clearly disclose that we may earn a small commission at no extra cost to you. Other merchant links are non-affiliate links. We do not claim guaranteed clinical results.</p><p>Directory listings use public practice information. A listing is not an endorsement or a check of individual professional registration. Check details and fees directly with the practice and verify registration with the appropriate regulator.</p></section><section id="privacy"><h2>Privacy.</h2><p>Search terms entered in the directory are used in your browser to filter the displayed listings; we don't store them in an account. When you follow a link to an external site, that site's own privacy policy applies. The hosting platform may collect basic operational analytics.</p></section><section id="terms"><h2>Terms of use.</h2><p>footbackpain provides general information only. It is not intended to diagnose or treat a condition, replace professional advice, or provide emergency services. External websites and their content are controlled by their respective owners. We encourage you to independently confirm information before making care or purchasing decisions.</p></section><SafetyNotice compact/></div></div></main>; }
+function About() { return <main id="main-content"><div className="page-hero"><div className="wrap"><div className="breadcrumb"><a href="/">HOME</a> / ABOUT</div><SectionLabel>OUR APPROACH</SectionLabel><h1>Better questions.<br/><em>More confident steps.</em></h1><p>footbackpain is a starting point for understanding the possible connections between foot health, movement and back pain.</p></div></div><div className="wrap about-layout"><nav aria-label="About this site"><a href="#editorial">Editorial principles</a><a href="#disclosure">Product disclosure</a><a href="#privacy">Privacy</a><a href="#terms">Terms of use</a></nav><div className="prose"><section id="editorial"><SectionLabel>OUR PROMISE</SectionLabel><h2>Information with care.</h2><p>We believe health information should feel clear, balanced and useful. Every guide is researched against peer-reviewed musculoskeletal literature and public clinical guidelines, with primary sources linked directly on each page so you can read further. We distinguish associations from proven causes and never make promises of a cure.</p><p>Back pain is complex, and your circumstances are individual. Our articles are educational resources designed to help you ask better questions—they are not a diagnosis or a substitute for personalised care from an Ahpra-registered podiatrist, chiropractor, physiotherapist, or GP. Each guide displays its publication date and is scheduled for periodic editorial review.</p></section><section id="disclosure"><h2>Product & directory transparency.</h2><p>Where articles or product picks include affiliate links (such as PodiMe Foot Care), we clearly disclose that we may earn a small commission at no extra cost to you. Other merchant links are non-affiliate links. We do not claim guaranteed clinical results.</p><p>Directory listings use public practice information. A listing is not an endorsement or a check of individual professional registration. Check details and fees directly with the practice and verify registration with the appropriate regulator.</p></section><section id="privacy"><h2>Privacy.</h2><p>Search terms entered in the directory are used in your browser to filter the displayed listings; we don't store them in an account. When you follow a link to an external site, that site's own privacy policy applies. The hosting platform may collect basic operational analytics.</p></section><section id="terms"><h2>Terms of use.</h2><p>footbackpain provides general information only. It is not intended to diagnose or treat a condition, replace professional advice, or provide emergency services. External websites and their content are controlled by their respective owners. We encourage you to independently confirm information before making care or purchasing decisions.</p></section><SafetyNotice compact/></div></div></main>; }
 function NotFound() { return <main id="main-content" className="not-found wrap"><SectionLabel>PAGE NOT FOUND</SectionLabel><h1>Looks like we took a <em>wrong turn.</em></h1><p>Let's get you back on the right path.</p><a className="btn btn-dark" href="/">Back to the beginning <ArrowRight size={16}/></a></main>; }
 
 export default function App({path = '/'}: {path?: string}) {
   const clean = path.length > 1 ? path.replace(/\/$/, '') : path;
+  const dirRoute = parseDirectoryRoute(clean);
   let page: React.ReactNode;
   if (clean === '/') page = <main id="main-content"><Home/></main>;
   else if (clean === '/resources') page = <Resources/>;
   else if (clean.startsWith('/resources/')) page = <ResourcePage slug={clean.split('/')[2]}/>;
-  else if (clean === '/directory') page = <Directory/>;
-  else if (clean.startsWith('/directory/')) page = <ProviderPage slug={clean.split('/')[2]}/>;
+  else if (dirRoute?.kind === 'index') page = <Directory/>;
+  else if (dirRoute?.kind === 'state') page = <Directory initialStateCode={dirRoute.stateCode} initialStateName={dirRoute.stateName}/>;
+  else if (dirRoute?.kind === 'city') page = <Directory initialStateCode={dirRoute.stateCode} initialStateName={dirRoute.stateName} initialCityName={dirRoute.cityName}/>;
+  else if (dirRoute?.kind === 'provider') page = <ProviderPage slug={dirRoute.slug}/>;
   else if (clean === '/products') page = <Products/>;
   else if (clean === '/about') page = <About/>;
   else page = <NotFound/>;

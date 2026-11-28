@@ -4,8 +4,11 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import App, { allRoutes, getMeta } from '../client/src/App';
 import { articles } from '../client/src/data/articles';
+import { providers } from '../client/src/data/providers';
+import { parseDirectoryRoute } from '../client/src/data/directoryRoutes';
 
 const SITE_URL = 'https://footbackpain.com';
+const BUILD_DATE = new Date().toISOString().slice(0, 10);
 const base = join(process.cwd(), 'dist/public');
 const template = readFileSync(join(base, 'index.html'), 'utf8');
 const escape = (text: string) =>
@@ -78,6 +81,75 @@ for (const route of allRoutes) {
 
     const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c');
     extraHead += `\n    <script type="application/ld+json">${jsonLd}</script>`;
+  } else {
+    const dirRoute = parseDirectoryRoute(route);
+    if (dirRoute?.kind === 'provider') {
+      const provider = providers.find(p => p.slug === dirRoute.slug);
+      if (provider) {
+        const stateSlug = provider.state ? provider.state.toLowerCase() : '';
+        const breadcrumbs = [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+          { '@type': 'ListItem', position: 2, name: 'Directory', item: `${SITE_URL}/directory/` },
+          ...(stateSlug
+            ? [{ '@type': 'ListItem', position: 3, name: provider.state, item: `${SITE_URL}/directory/${stateSlug}/` }]
+            : []),
+          {
+            '@type': 'ListItem',
+            position: stateSlug ? 4 : 3,
+            name: provider.name,
+            item: canonicalUrl,
+          },
+        ];
+        const clinicGraph: Record<string, unknown>[] = [
+          {
+            '@type': 'MedicalClinic',
+            name: provider.name,
+            description: provider.description,
+            url: canonicalUrl,
+            ...(provider.website ? { sameAs: [provider.website] } : {}),
+            ...(provider.phone ? { telephone: provider.phoneHref || provider.phone } : {}),
+            medicalSpecialty: provider.type === 'Podiatrist' ? 'Podiatric' : 'Chiropractic',
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: provider.address,
+              ...(provider.city ? { addressLocality: provider.city } : {}),
+              ...(provider.state ? { addressRegion: provider.state } : {}),
+              ...(provider.postcode ? { postalCode: provider.postcode } : {}),
+              addressCountry: 'AU',
+            },
+          },
+          {
+            '@type': 'BreadcrumbList',
+            itemListElement: breadcrumbs,
+          },
+        ];
+        const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': clinicGraph }).replace(/</g, '\\u003c');
+        extraHead += `\n    <script type="application/ld+json">${jsonLd}</script>`;
+      }
+    } else if (dirRoute?.kind === 'state' || dirRoute?.kind === 'city') {
+      const breadcrumbs = [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+        { '@type': 'ListItem', position: 2, name: 'Directory', item: `${SITE_URL}/directory/` },
+        { '@type': 'ListItem', position: 3, name: dirRoute.stateName, item: `${SITE_URL}/directory/${dirRoute.stateSlug}/` },
+        ...(dirRoute.kind === 'city'
+          ? [{ '@type': 'ListItem', position: 4, name: dirRoute.cityName, item: canonicalUrl }]
+          : []),
+      ];
+      const collectionGraph = [
+        {
+          '@type': 'CollectionPage',
+          name: title,
+          description,
+          url: canonicalUrl,
+        },
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: breadcrumbs,
+        },
+      ];
+      const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': collectionGraph }).replace(/</g, '\\u003c');
+      extraHead += `\n    <script type="application/ld+json">${jsonLd}</script>`;
+    }
   }
 
   let html = template
@@ -114,8 +186,17 @@ const sitemapXml = [
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
   ...allRoutes.map(route => {
     const loc = route === '/' ? `${SITE_URL}/` : `${SITE_URL}${route}/`;
-    const priority = route === '/' ? '1.0' : route === '/resources' ? '0.9' : route.startsWith('/resources/') ? '0.8' : '0.7';
-    return `  <url><loc>${loc}</loc><lastmod>2026-11-21</lastmod><priority>${priority}</priority></url>`;
+    const article = articles.find(a => route === `/resources/${a.slug}`);
+    const lastmod = article?.publishDate || BUILD_DATE;
+    const priority =
+      route === '/'
+        ? '1.0'
+        : route === '/resources' || route === '/directory'
+          ? '0.9'
+          : route.startsWith('/resources/') || /^\/directory\/[a-z]{2,3}(\/|$)/.test(route)
+            ? '0.8'
+            : '0.7';
+    return `  <url><loc>${loc}</loc><lastmod>${lastmod}</lastmod><priority>${priority}</priority></url>`;
   }),
   '</urlset>',
   '',

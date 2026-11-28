@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { ArrowDown, Check, FileText, Globe, Image, Phone, Send, ShieldCheck } from 'lucide-react';
+import { ArrowDown, Check, FileText, Globe, Image, Phone, Send, ShieldCheck, Sparkles } from 'lucide-react';
+import { trackEvent } from '../utils/analytics';
 
-const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/mcmoandrew@gmail.com';
+const FORMSUBMIT_ENDPOINT =
+  import.meta.env?.VITE_ENQUIRY_ENDPOINT || 'https://formsubmit.co/ajax/mcmoandrew@gmail.com';
 
 const PROFESSIONS = [
   'Podiatrist',
@@ -22,7 +24,7 @@ const CLAIM_EDIT_OPTIONS = [
   'Address or hours',
 ] as const;
 
-type EnquiryType = 'new' | 'claim';
+type EnquiryType = 'new' | 'claim' | 'featured';
 
 type FormState = {
   enquiryType: EnquiryType;
@@ -97,6 +99,7 @@ export function DirectoryEnquirySection() {
       : form.profession;
 
   const isClaim = form.enquiryType === 'claim';
+  const isFeatured = form.enquiryType === 'featured';
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -106,14 +109,20 @@ export function DirectoryEnquirySection() {
     setErrorMessage('');
 
     const payload = {
-      _subject: isClaim
-        ? `Claim Directory Listing Request: ${form.practiceName.trim()}`
-        : `New Directory Listing Enquiry: ${form.practiceName.trim()}`,
+      _subject: isFeatured
+        ? `Featured Listing Enquiry: ${form.practiceName.trim()}`
+        : isClaim
+          ? `Claim Directory Listing Request: ${form.practiceName.trim()}`
+          : `New Directory Listing Enquiry: ${form.practiceName.trim()}`,
       _replyto: form.email.trim(),
       _template: 'table',
       _captcha: 'false',
-      'Enquiry Type': isClaim ? 'Claim an existing listing' : 'New directory listing',
-      ...(isClaim
+      'Enquiry Type': isFeatured
+        ? 'Featured & Verified Listing Upgrade'
+        : isClaim
+          ? 'Claim an existing listing'
+          : 'New directory listing',
+      ...(isClaim || isFeatured
         ? {
             'Existing Listing Reference': form.existingListingRef.trim() || form.practiceName.trim(),
             'Information to Update':
@@ -150,6 +159,12 @@ export function DirectoryEnquirySection() {
         throw new Error(data?.message || 'Unable to send enquiry right now.');
       }
 
+      trackEvent('directory_enquiry_submitted', {
+        enquiry_type: form.enquiryType,
+        profession: resolvedProfession,
+        state: form.state,
+      });
+
       setStatus('success');
       setForm(initialFormState);
     } catch (err) {
@@ -181,6 +196,19 @@ export function DirectoryEnquirySection() {
             </p>
             <button type="button" className="btn btn-dark" onClick={startClaimFlow}>
               Claim your listing <ArrowDown size={15} />
+            </button>
+            <button
+              type="button"
+              className="btn btn-outline"
+              style={{ marginLeft: '10px' }}
+              onClick={() => {
+                setStatus('idle');
+                setForm(prev => ({ ...prev, enquiryType: 'featured' }));
+                const el = document.getElementById('list-your-practice');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              <Sparkles size={15} /> Upgrade to Featured
             </button>
           </div>
 
@@ -282,11 +310,19 @@ export function DirectoryEnquirySection() {
               <form className="enquiry-form" onSubmit={handleSubmit}>
                 <div className="enquiry-card-header">
                   <span className="card-kicker">DIRECTORY LISTING ENQUIRY</span>
-                  <h3>{isClaim ? 'Claim your existing listing' : 'Tell us about your practice'}</h3>
+                  <h3>
+                    {isFeatured
+                      ? 'Upgrade to a Featured & Verified listing'
+                      : isClaim
+                        ? 'Claim your existing listing'
+                        : 'Tell us about your practice'}
+                  </h3>
                   <p>
-                    {isClaim
-                      ? 'Confirm your practice details and let us know what you would like to update.'
-                      : 'Complete the form below and we will review your clinic for inclusion.'}
+                    {isFeatured
+                      ? 'Get priority placement in local searches, a Verified badge, direct online booking button, and patient callback leads.'
+                      : isClaim
+                        ? 'Confirm your practice details and let us know what you would like to update.'
+                        : 'Complete the form below and we will review your clinic for inclusion.'}
                   </p>
                 </div>
 
@@ -306,13 +342,13 @@ export function DirectoryEnquirySection() {
 
                 <fieldset className="enquiry-type-fieldset">
                   <legend>What would you like to do?</legend>
-                  <div className="enquiry-type-options">
-                    <label className={`enquiry-type-option ${!isClaim ? 'active' : ''}`}>
+                  <div className="enquiry-type-options enquiry-type-options-3">
+                    <label className={`enquiry-type-option ${form.enquiryType === 'new' ? 'active' : ''}`}>
                       <input
                         type="radio"
                         name="enquiryType"
                         value="new"
-                        checked={!isClaim}
+                        checked={form.enquiryType === 'new'}
                         onChange={() => updateField('enquiryType', 'new')}
                       />
                       <div>
@@ -333,10 +369,23 @@ export function DirectoryEnquirySection() {
                         <span>Verify ownership &amp; update descriptions, phone, pictures or website</span>
                       </div>
                     </label>
+                    <label className={`enquiry-type-option ${isFeatured ? 'active' : ''}`}>
+                      <input
+                        type="radio"
+                        name="enquiryType"
+                        value="featured"
+                        checked={isFeatured}
+                        onChange={() => updateField('enquiryType', 'featured')}
+                      />
+                      <div>
+                        <strong>Featured &amp; Verified tier</strong>
+                        <span>Priority search placement, Verified badge &amp; direct booking link</span>
+                      </div>
+                    </label>
                   </div>
                 </fieldset>
 
-                {isClaim && (
+                {(isClaim || isFeatured) && (
                   <div className="claim-form-box">
                     <div className="form-field">
                       <label htmlFor="existing-listing-ref">
@@ -588,9 +637,11 @@ export function DirectoryEnquirySection() {
                   <button className="btn btn-dark" type="submit" disabled={status === 'submitting'}>
                     {status === 'submitting'
                       ? 'Sending enquiry...'
-                      : isClaim
-                        ? 'Submit claim request'
-                        : 'Submit listing enquiry'}
+                      : isFeatured
+                        ? 'Request Featured placement'
+                        : isClaim
+                          ? 'Submit claim request'
+                          : 'Submit listing enquiry'}
                     <Send size={15} />
                   </button>
                 </div>
